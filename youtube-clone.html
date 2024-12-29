@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        youtube clone 
+    </title>
+
+    <head>
+
+        <style>
+            .left-buttons-divs button {
+                width: 170px;
+                text-align: left;
+                border-radius: 5px;
+                padding-top: 10px;
+                padding-bottom: 5px;
+                font-family: Arial;
+                font-size: 13px;
+                background-color: white;
+                border-style: none;
+            }
+            .left-buttons-divs button:hover {
+                background-color: rgb(237, 237, 237);
+                cursor: pointer;
+                font-size: 14px;
+            }
+        
+            .top-buttons-divs button {
+                background-color: rgb(236, 236, 236);
+                height: 25px;
+                border-radius: 5px;
+                border-style: none;
+                font-family: Arial;
+                overflow: hidden;
+                font-size: 13px;
+                padding-right: 10px;
+                padding-left: 10px;
+                text-overflow:clip;
+                overflow: hidden;
+            }
+            .top-buttons-divs button:hover {
+                background-color: black;
+                color: white;
+                cursor: pointer;
+            }
+         
+        </style>
+
+    </head>
+
+    <body>
+
+        <div class="upper-div" style="position: fixed;
+                            background-color: white;
+                            top: 0px;
+                            left: 0px;
+                            z-index: 2;">
+
+            <div class="division1" style="display: flex;
+                                        flex: 1 1 1;
+                                        vertical-align: middle;">
+                <img style="width: 180px;" class="youtube-logo" src="youtubelogo.png">
+
+                <input style="width: 620px;
+                            height: 35px;
+                            margin-left: 300px;
+                            vertical-align: top;
+                            margin-top: 5px;
+                            border-radius: 25px;
+                            color: black;
+                            border-style: solid;
+                            border-width: 1px;
+                            border-color: rgb(194, 194, 194);" type="text" placeholder="   search">
+
+                <img style="width: 50px;" class="mic-search" src="mic.png">
+
+            </div>
+
+        </div>
+
+        <div class="lower-div" style="display: flex;
+                                    flex: 1 1 1;
+                                    background-color: white;">
+
+            <div class="left-buttons-divs" style="width: 200px;
+                                                height: 780px;
+                                                position: fixed;
+                                                background-color: white;
+                                                top: 45px;
+                                                left: 0px;
+                                                z-index: 3;
+                                                display: inline-block;">
+
+                <div class="buttons-divs-1" style="border-bottom: 1px solid;
+                                                border-color: lightgrey;
+                                                padding-bottom: 5px;">
+
+                    <button>
+                        ### Home 
+                    </button>
+                
+                    <button>
+                        ### Shorts 
+                    </button>
+                
+                    <button>
+                        Subscription
+                    </button>    
+
+                </div>
+                
+                <div class="buttons-divs-2">
+
+                    <button> 
+                        ### You
+                    </button>
+
+                    <button>
+                        ### History
+                    </button>
+
+                </div>
+                
+                <div class="signin-div">
+                    
+                    <img style="width: 200px;" class="signin" src="signin.png">
+
+                </div>
+
+                <div class="buttons-divs-3">
+                    
+                    <button>
+                        ### Trending 
+                    </button>
+
+                    <button>
+                        ### Shopping 
+                    </button>
+                    
+                    <button>
+                        ### Music
+                    </button>
+
+                    <button>
+                        ### Flims
+                    </button>
+
+                    <button>
+                        ### Live 
+                    </button>
+
+                    <button>
+                        ### Gamming 
+                    </button>
+
+                    <button>
+                        ### News 
+                    </button>
+
+                    <button>
+                        ### Sports
+                    </button>
+
+                    <button>
+                        ### Courses
+                    </button>
+
+                </div>
+            </div>
+
+            <div class="right-video-format" style="display: inline-block;
+                                            vertical-align: top;
+                                            position: absolute;
+                                            z-index: 1;
+                                            top: 50px;
+                                            left: 200px;">
+
+                <div class="top-buttons-divs" style="vertical-align: top;
+                                                    padding-bottom: 10px;
+                                                    display: flex;
+                                                    gap: 3px;" >
+
+                    <button>
+                        All
+                    </button>
+
+                    <button>
+                        Music
+                    </button>
+
+                    <button>
+                        Gamming
+                    </button>
+
+                    <button>
+                        News
+                    </button>
+
+                    <button>
+                        News
+                    </button>
+
+                    <button>
+                        T-Series
+                    </button>
+
+                    <button>
+                        Live
+                    </button>
+
+                    <button>
+                        Alen Backer
+                    </button>
+
+                    <button>
+                        Mantras
+                    </button>
+
+                    <button>
+                        Disha Vakhani
+                    </button>
+
+                    <button>
+                        Wickets
+                    </button>
+
+                    <button>
+                        Indian Soap Operas
+                    </button>
+
+                    <button>
+                        Playlists
+                    </button>
+
+                </div>
+
+                <div class="video-format" style="vertical-align: top;
+                                                display: inline-block;"> 
+
+                            <div style="display: inline-block;
+                                        vertical-align: top;
+                                        height: 250px;
+                                        width: 300px;" class="video1">
+                                
+                                <img style="width: 300px;
+                                            border-radius: 5px;" class="thumbnail1" src="wallpaper1.png">
+                        
+                                <div class="video-layout-2-1">
+                        
+                                    <img style="width: 30px;
+                                                vertical-align: top;
+                                                padding-top: 5px;" class="profile-pic-1" src="profilepic1.png">
+                        
+                                    <div style="display: inline-block;
+                                                font-size: 10px;
+                                                height: 90px;
+                                                width: 265px;" class="discription1">
+                                        
+                                        <h2 style="margin-top: 5px;
+                                                    height: 35px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">
+                                            Krishna's Flute|| (bansuri) Morning Flute, Yoga Music, Indian Relaxing Flute
+                                        </h2>
+                                        <p1>
+                                            Krishna's Flute 
+                                        </p1>
+                                        <p2>
+                                            17 lakhs views . Streamed 8 months ago
+                                        </p2>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div style="display: inline-block;
+                                        height: 250px;
+                                        width: 300px;" class="video2">
+                                
+                                <img style="width: 300px;
+                                            height: 166px;
+                                            border-radius: 5px;" class="thumbnail2" src="wallpaper2.png">
+                        
+                                <div class="video-layout-2-2">
+                        
+                                    <img style="width: 30px;
+                                                vertical-align: top;
+                                                padding-top: 5px;" class="profile-pic-2" src="profilepic2.png">
+                        
+                                    <div style="display: inline-block;
+                                                height: 80px;
+                                                font-size: 10px;
+                                                width: 265px;" class="discription2">
+                                        
+                                        <h2 style="margin-top: 5px;
+                                                    width: 265px;
+                                                    height: 35px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">
+                                            Ramayan - EP 62 - Kumbhkaran ka yudh prasthan | Vibhishan Kumbhkaran Samvad | Kumbhkaran yudh Aur
+                                        </h2>
+                                        <p1>
+                                            Krishna's Flute 
+                                        </p1>
+                                        <p2>
+                                            17 lakhs views . Streamed 8 months ago
+                                        </p2>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div style="display: inline-block;
+                                        height: 250px;
+                                        width: 300px;" class="video3">
+                                
+                                <img style="width: 300px;
+                                            height: 166px;
+                                            border-radius: 5px;" class="thumbnail3" src="wallpaper3.png">
+                        
+                                <div class="video-layout-3-2">
+                        
+                                    <img style="width: 30px;
+                                                vertical-align: top;
+                                                padding-top: 5px;" class="profile-pic-3" src="profilepic3.png">
+                        
+                                    <div style="display: inline-block;
+                                                height: 80px;
+                                                font-size: 10px;
+                                                width: 265px;" class="discription3">
+                                        
+                                        <h2 style="margin-top: 5px;
+                                                    width: 265px;
+                                                    height: 35px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">
+                                            1 Hour Oddly Satisfying Slime ASMR No Music Videos - Relaxing Slime 2022
+                                        </h2>
+                                        <p1>
+                                            The Best Satisfying  
+                                        </p1>
+                                        <p2>
+                                            4 crore views . 2 years ago
+                                        </p2>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div style="display: inline-block;
+                                        height: 250px;
+                                        width: 300px;" class="video4">
+                                
+                                <img style="width: 300px;
+                                            height: 166px;
+                                            border-radius: 5px;" class="thumbnail4" src="wallpaper 4.png">
+                        
+                                <div class="video-layout-4-2">
+                        
+                                    <img style="width: 30px;
+                                                vertical-align: top;
+                                                padding-top: 5px;" class="profile-pic-4" src="profilepic 4.png">
+                        
+                                    <div style="display: inline-block;
+                                                height: 80px;
+                                                font-size: 10px;
+                                                width: 265px;" class="discription4">
+                                        
+                                        <h2 style="margin-top: 5px;
+                                                    width: 265px;
+                                                    height: 35px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">
+                                            Ekanth SHindhe ne shapat lene ke baad kya badi baat kahi? | Maharashtra News| Hindi News
+                                        </h2>
+                                        <p1>
+                                            TIMES NOW Navbharat
+                                        </p1>
+                                        <p2>
+                                            47k views . 58 minutes ago
+                                        </p2>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div style="display: inline-block;
+                                        height: 250px;
+                                        width: 300px;" class="video5">
+                                
+                                <img style="width: 300px;
+                                            height: 166px;
+                                            border-radius: 5px;" class="thumbnail5" src="wallpaper 5.png">
+                        
+                                <div class="video-layout-5-2">
+                        
+                                    <img style="width: 30px;
+                                                vertical-align: top;
+                                                padding-top: 5px;" class="profile-pic-5" src="profile pic 5.png">
+                        
+                                    <div style="display: inline-block;
+                                                height: 80px;
+                                                font-size: 10px;
+                                                width: 265px;" class="discription5">
+                                        
+                                        <h2 style="margin-top: 5px;
+                                                    width: 265px;
+                                                    height: 35px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">
+                                            Maharashtra Politics: Eknath Shindhe poore raajnitik safar, vidroh ke baad mukhyamantri pad pr 
+                                        </h2>
+                                        <p1>
+                                            ABPLIVE
+                                        </p1>
+                                        <p2>
+                                            1.9k views . 16 minutes ago
+                                        </p2>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                            <div style="display: inline-block;
+                                        height: 250px;
+                                        width: 300px;" class="video6">
+                                
+                                <img style="width: 300px;
+                                            height: 166px;
+                                            border-radius: 5px;" class="thumbnail6" src="wallpaper 6.png">
+                        
+                                <div class="video-layout-2-2">
+                        
+                                    <img style="width: 30px;
+                                                vertical-align: top;
+                                                padding-top: 5px;" class="profile-pic-6" src="profilepic 6.png">
+                        
+                                    <div style="display: inline-block;
+                                                height: 80px;
+                                                font-size: 10px;
+                                                width: 265px;" class="discription6">
+                                        
+                                        <h2 style="margin-top: 5px;
+                                                    width: 265px;
+                                                    height: 35px;
+                                                    overflow: hidden;
+                                                    text-overflow: ellipsis;">
+                                            Maharashtra politics: CM fernandaz ke G factor toh shindhe ke S factor ki charcha kyun?
+                                        </h2>
+                                        <p1>
+                                            Krishna's Flute 
+                                        </p1>
+                                        <p2>
+                                            17 lakhs views . Streamed 8 months ago
+                                        </p2>
+                                    </div>
+                                </div>
+                            </div>
+                        
+                </div>
+
+            </div>
+
+        </div>
+
+    </body>
+</html>
