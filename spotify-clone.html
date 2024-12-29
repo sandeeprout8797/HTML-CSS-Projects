@@ -1,0 +1,1543 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Spotify Clone
+    </title>
+
+    <head>
+        <style class="div-1-top">
+            .top-div {
+                display: flex;
+                background-color: black;
+            }
+            .top-div-1 {
+                width: 150px;
+            }
+            .top-search-1 {
+                background-color: rgb(37, 37, 37);
+                color: gray;
+                border: none;
+                font-size: 23px;
+                width: 700px;
+                height: 100px;
+                border-radius: 60px;
+            }
+        </style>
+        
+        <style class="div-artist">
+            .artist-div {
+                background-color: rgb(26, 26, 26);
+                padding-bottom: 50px;
+            }
+            .artists-info {
+                display: flex;
+                justify-content: space-between;
+                padding-bottom: 20px;
+                padding-left: 30px;
+            }
+            .artist-1 {
+                position: relative;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
+            .artist-1:hover {
+                background-color: rgb(39, 39, 39);
+            }
+            .profile-pic1 {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+            }
+            .play-but-1 {
+                position: absolute;
+                background-color: rgb(0, 207, 0);
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                top: 120px;
+                left: 120px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .artist-1:hover .play-but-1 {
+                opacity: 1;
+                
+            }
+            .artist-1 h3 {
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .artist-1 p1 {
+                color: rgb(186, 186, 186);
+                margin-left: 10px;
+            }
+            .artist-1 h3:hover {
+                text-decoration: underline;
+            }
+        
+            .artist-2 {
+                position: relative;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
+            .artist-2:hover {
+                background-color: rgb(39, 39, 39);
+            }
+            .profile-pic2 {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+            }
+            .play-but-2 {
+                position: absolute;
+                background-color: rgb(0, 207, 0);
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                top: 120px;
+                left: 120px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .artist-2:hover .play-but-2 {
+                opacity: 1;
+            }
+            .artist-2 h3 {
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .artist-2 p1 {
+                color: rgb(186, 186, 186);
+                margin-left: 10px;
+            }
+            .artist-2 h3:hover {
+                text-decoration: underline;
+            }
+        
+            .artist-3 {
+                position: relative;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
+            .artist-3:hover {
+                background-color: rgb(39, 39, 39);
+            }
+            .profile-pic3 {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+            }
+            .play-but-3 {
+                position: absolute;
+                background-color: rgb(0, 207, 0);
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                top: 120px;
+                left: 120px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .artist-3:hover .play-but-3 {
+                opacity: 1;
+            }
+            .artist-3 h3 {
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .artist-3 p1 {
+                color: rgb(186, 186, 186);
+                margin-left: 10px;
+            }
+            .artist-3 h3:hover {
+                text-decoration: underline;
+            }
+        
+            .artist-4 {
+                position: relative;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
+            .artist-4:hover {
+                background-color: rgb(39, 39, 39);
+            }
+            .profile-pic4 {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+            }
+            .play-but-4 {
+                position: absolute;
+                background-color: rgb(0, 207, 0);
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                top: 120px;
+                left: 120px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .artist-4:hover .play-but-4 {
+                opacity: 1;
+            }
+            .artist-4 h3 {
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .artist-4 p1 {
+                color: rgb(186, 186, 186);
+                margin-left: 10px;
+            }
+            .artist-4 h3:hover {
+                text-decoration: underline;
+            }
+        
+            .artist-5 {
+                position: relative;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
+            .artist-5:hover {
+                background-color: rgb(39, 39, 39);
+            }
+            .profile-pic5 {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+            }
+            .play-but-5 {
+                position: absolute;
+                background-color: rgb(0, 207, 0);
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                top: 120px;
+                left: 120px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .artist-5:hover .play-but-5 {
+                opacity: 1;
+            }
+            .artist-5 h3 {
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .artist-5 p1 {
+                color: rgb(186, 186, 186);
+                margin-left: 10px;
+            }
+            .artist-5 h3:hover {
+                text-decoration: underline;
+            }
+        
+            .artist-6 {
+                position: relative;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 15px;
+            }
+            .artist-6:hover {
+                background-color: rgb(39, 39, 39);
+            }
+            .profile-pic6 {
+                height: 200px;
+                width: 200px;
+                border-radius: 100px;
+            }
+            .play-but-6 {
+                position: absolute;
+                background-color: rgb(0, 207, 0);
+                width: 60px;
+                height: 60px;
+                border-radius: 30px;
+                top: 120px;
+                left: 120px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+            .artist-6:hover .play-but-6 {
+                opacity: 1;
+            }
+            .artist-6 h3 {
+                margin-bottom: 10px;
+                margin-left: 10px;
+            }
+            .artist-6 p1 {
+                color: rgb(186, 186, 186);
+                margin-left: 10px;
+            }
+            .artist-6 h3:hover {
+                text-decoration: underline;
+            }
+            .artist-info-topdiv {
+                display: flex;
+                justify-content: space-between;
+            }
+            .artist-info-topdiv h2 {
+                color: white;
+                margin-left: 30px;
+                display: inline-block;
+                padding-top: 20px;
+                font-size: 40px;
+            }
+            .artist-info-topdiv p3 {
+                color: white;
+                padding-top: 60px;
+            }
+            .artist-info-topdiv p3:hover {
+                text-decoration: underline;
+            }
+        </style>
+        
+        <style class="div-album">
+            .album-info-topdiv {
+                display: flex;
+                justify-content: space-between;
+                padding-top: 50px;
+                padding-left: 30px;
+                padding-right: 30px;
+                font-size: 20px;
+            }
+            .album-info-topdiv p3 {
+                padding-top: 30px;
+            }
+            .album-info-topdiv p3:hover {
+                text-decoration: underline;
+            }
+            .albums-div {
+                padding-left: 30px;
+                padding-bottom: 50px;
+                display: flex;
+                justify-content: space-between;
+            }
+            .album-1-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-1 h3:hover, .album-1 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-1 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-1 {
+                position: relative;
+            }
+            .album-1:hover .play-album-1 {
+                opacity: 1;
+            }
+        
+            .album-2-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-2 h3:hover, .album-2 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-2 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-2 {
+                position: relative;
+            }
+            .album-2:hover .play-album-2 {
+                opacity: 1;
+            }
+        
+            .album-3-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-3 h3:hover, .album-3 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-3 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-3 {
+                position: relative;
+            }
+            .album-3:hover .play-album-3 {
+                opacity: 1;
+            }
+        
+            .album-4-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-4 h3:hover, .album-4 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-4 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-4 {
+                position: relative;
+            }
+            .album-4:hover .play-album-4 {
+                opacity: 1;
+            }
+        
+            .album-4-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-4 h3:hover, .album-4 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-4 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-4 {
+                position: relative;
+            }
+            .album-4:hover .play-album-4 {
+                opacity: 1;
+            }
+        
+            .album-5-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-5 h3:hover, .album-5 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-5 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-5 {
+                position: relative;
+            }
+            .album-5:hover .play-album-5 {
+                opacity: 1;
+            }
+        
+            .album-6-pic {
+                position: relative;
+                height: 200px;
+                width: 200px;
+            }
+            .album-6 h3:hover, .album-6 p1:hover {
+                text-decoration: underline;
+            }
+            .play-album-6 {
+                position: absolute;
+                top: 140px;
+                left: 140px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                background-color: rgb(0, 207, 0);
+                height: 60px;
+                width: 60px;
+                border-radius: 30px;
+            }
+            .album-6 {
+                position: relative;
+            }
+            .album-6:hover .play-album-6 {
+                opacity: 1;
+            }
+            .album-div {
+                background-color: black;
+                color: white;
+            }
+        
+        </style>
+        
+        <style class="div-radio">
+            .radio {
+                background-color: black;
+                color: white;
+                padding-top: 30px;
+                padding-bottom: 50px;
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+            .wp-radio {
+                display: flex;
+                justify-content: space-between;
+            }
+            .wp-radio h1 {
+                font-size: 40px;
+            }
+            .radio-div {
+                display: flex;
+            }
+            .main-radio-div {
+                display: flex;
+                justify-content: space-between;
+            }
+        
+            .radio-img-1 {
+                height: 200px;
+                width: 200px;
+            }
+            .radio-wp-1 {
+                color: rgb(184, 184, 184);
+                width: 200px;
+                height: 40px;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+        
+            .radio-img-2 {
+                height: 200px;
+                width: 200px;
+            }
+            .radio-wp-2 {
+                color: rgb(184, 184, 184);
+                width: 200px;
+                height: 40px;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+        
+            .radio-img-3 {
+                height: 200px;
+                width: 200px;
+            }
+            .radio-wp-3 {
+                color: rgb(184, 184, 184);
+                width: 200px;
+                height: 40px;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+        
+            .radio-img-4 {
+                height: 200px;
+                width: 200px;
+            }
+            .radio-wp-4 {
+                color: rgb(184, 184, 184);
+                width: 200px;
+                height: 40px;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+        
+            .radio-img-5 {
+                height: 200px;
+                width: 200px;
+            }
+            .radio-wp-5 {
+                color: rgb(184, 184, 184);
+                width: 200px;
+                height: 40px;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+        
+            .radio-img-6 {
+                height: 200px;
+                width: 200px;
+            }
+            .radio-wp-6 {
+                color: rgb(184, 184, 184);
+                width: 200px;
+                height: 40px;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+        </style>
+        
+        <style class="feat">
+            .chart {
+                background-color: black;
+                color: white;
+                padding-top: 50px;
+                padding-right: 30px;
+            }
+            .feat-div-top h1 {
+                padding-left: 30px;
+                font-size: 40px;
+            }
+            .featured-chart-div2 {
+                display: flex;
+                padding-left: 30px;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .ft-1 {
+                height: 200px;
+                width:200px;
+            }
+            .ft-wp-1 {
+                background-color: rgb(0, 0, 0);
+                color: rgb(169, 169, 169);
+                width: 200px;
+                height: 80px;
+            }
+            .ft-2 {
+                height: 200px;
+                width: 200px;
+            }
+            .ft-wp-2 {
+                background-color: black;
+                color: rgb(169, 169, 169);
+                width: 200px;
+                height: 80px;
+            }
+            .ft-3 {
+                height: 200px;
+                width: 200px;
+            }
+            .ft-wp-3 {
+                background-color: black;
+                color: rgb(169, 169, 169);
+                width: 200px;
+                height: 80px;
+            }
+            .ft-4 {
+                height: 200px;
+                width: 200px;
+            }
+            .ft-wp-4 {
+                background-color: black;
+                color: rgb(169, 169, 169);
+                width: 200px;
+                height: 80px;
+            }
+            .ft-5 {
+                height: 200px;
+                width: 200px;
+            }
+            .ft-wp-5 {
+                background-color: black;
+                color: rgb(169, 169, 169);
+                width: 200px;
+                height: 80px;
+            }
+            .ft-6 {
+                height: 200px;
+                width: 200px;
+            }
+            .ft-wp-6 {
+                background-color: black;
+                color: rgb(169, 169, 169);
+                width: 200px;
+                height: 80px;
+            }
+            .feat-1, .feat-2, .feat-3, .feat-4, .feat-5, .feat-6 {
+                position: relative;
+            }
+            .green-but-feat-1, .green-but-feat-2, .green-but-feat-3, .green-but-feat-4, .green-but-feat-5, .green-but-feat-6 {
+                position: absolute;
+                background-color: rgba(0, 225, 0);
+                top: 125px;
+                left: 125px;
+                height: 60px;
+                width: 60px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+                border-radius: 40px;
+            }
+            .feat-1:hover .green-but-feat-1 {
+                opacity: 1;
+            }
+            .feat-2:hover .green-but-feat-2 {
+                opacity: 1;
+            }
+            .feat-3:hover .green-but-feat-3 {
+                opacity: 1;
+            }
+            .feat-4:hover .green-but-feat-4 {
+                opacity: 1;
+            }
+            .feat-5:hover .green-but-feat-5 {
+                opacity: 1;
+            }
+            .feat-6:hover .green-but-feat-6 {
+                opacity: 1;
+            }
+        
+        </style>
+        
+        <style class="ply">
+            .p-img1 {
+                width: 200px;
+                height: 200px;
+            }
+            .p-l-1 div {
+                width: 200px;
+                height: 40px;
+                color: rgb(197, 197, 197);
+            }
+        
+            .p-img2 {
+                width: 200px;
+                height: 200px;
+            }
+            .p-l-2 div {
+                width: 200px;
+                height: 40px;
+                color: rgb(197, 197, 197);
+            }
+        
+            .p-img3 {
+                width: 200px;
+                height: 200px;
+            }
+            .p-l-3 div {
+                width: 200px;
+                height: 40px;
+                color: rgb(197, 197, 197);
+            }
+        
+            .p-img4 {
+                width: 200px;
+                height: 200px;
+            }
+            .p-l-4 div {
+                width: 200px;
+                height: 40px;
+                color: rgb(197, 197, 197);
+            }
+        
+            .p-img5 {
+                width: 200px;
+                height: 200px;
+            }
+            .p-l-5 div {
+                width: 200px;
+                height: 40px;
+                color: rgb(197, 197, 197);
+            }
+        
+            .p-img6 {
+                width: 200px;
+                height: 200px;
+            }
+            .p-l-6 div {
+                width: 200px;
+                height: 40px;
+                color: rgb(197, 197, 197);
+            }
+        
+            .playlist-2 {
+                display: flex;
+                justify-content: space-between;
+            }
+            .playlist {
+                background-color: black;
+                color: white;
+                padding-left: 30px;
+                padding-right: 30px;
+                padding-top: 50px;
+                padding-bottom: 50px;
+            }
+        
+        </style>
+        
+        <style class="last">
+            .last-div {
+                display: flex;
+                font-size: 20px;
+                justify-content: center;
+                gap: 100px;
+                background-color: black;
+                color: white;
+                padding-top: 300px;
+                padding-bottom: 300px;
+                padding-left: 30px;
+            }
+            .last-div p1 {
+                color: rgb(167, 167, 167);
+            }
+            .div-9 {
+                display: flex;
+            }
+            .a2024 {
+                text-align: center;
+                display: block;
+                padding-bottom: 50px;
+                background-color: black;
+                color: white;
+            }
+        </style>
+        
+        <style class="left-side">
+            .left-div {
+                position: fixed;
+                top: 0px;
+                left: 0px;
+                display: flex;
+                z-index: 1;
+                flex-direction: column;
+                background-color: black;
+                height: 1400px;
+                width: 650px;
+                color: white;
+                font-size: 20px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .spotify-1-img {
+                width: 100pxpx;
+            }
+            .lib-left {
+                color: rgb(142, 142, 142);
+                padding-left: 20px;
+            }
+            .div-left-2 {
+                background-color: rgb(42, 42, 42);
+                width: 600px;
+                margin-left: 15px;
+                padding-top: 10px;
+                padding-left: 20px;
+                padding-bottom: 35px;
+            }
+            .div-left-2 h3 {
+                margin-bottom: 10px;
+            }
+            .div-left-2 button {
+                margin-top: 30px;
+                margin-left: 20px;
+                width: 230px;
+                border-radius: 30px;
+                padding: 20px;
+                border: none;
+                background-color: white;
+                color: black;
+            }
+            .div-left-2 button:hover {
+                cursor: pointer;
+            }
+            .div-left-3 {
+                padding-left: 20px;
+                width: 600px;
+                background-color: rgb(42, 42, 42);
+                margin-left: 15px;
+                margin-top: 20px;
+                margin-bottom: 50px;
+                padding-bottom: 35px;
+            }
+            .div-left-3 h3 {
+                margin-bottom: 10px;
+            }
+            .div-left-3 button {
+                margin-top: 30px;
+                margin-left: 20px;
+                width: 230px;
+                border-radius: 30px;
+                border: none;
+                padding: 20px;
+                background-color: white;
+                color: black;
+            }
+            .div-left-3 button:hover {
+                cursor: pointer;
+            }
+            .div-left-4 {
+                
+                width: 600px;
+            }
+            .div-left-4 p1 {
+                margin-right: 40px;
+                color: gray;
+            }
+            .div-left-4 p1:hover {
+                text-decoration: underline;
+            }
+            .div-left-4 button {
+                background-color: red;
+                width: 230px;
+                margin-top: 60px;
+                margin-left: 20px;
+                width: 230px;
+                border-radius: 30px;
+                border: 1px white solid;
+                padding: 20px;
+                background-color: black;
+                color: white;
+            }
+        </style>
+        
+        <style class="finalstyle">
+            .right-div {
+                z-index: 0;
+                margin-left: 640px;
+            }
+        </style>
+        
+        
+        
+    </head>
+
+    <body>
+        <div class="spotify">
+
+            <div class="left-div">
+                <div class="spotify">
+                    <img class="spotify-1-img" src="spotify-logo.png">
+                </div>
+                <h1 class="lib-left">
+                    Your Library
+                </h1>
+            
+                <div class="div-left-2">
+                    <h3>
+                        Create your first playlist 
+                    </h3>
+                    <p1>
+                        It's easy, we'll help you 
+                    </p1>
+                    <div class="left-2-button">
+                        <button>
+                            Create playlist 
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="div-left-3">
+                    <h3>
+                        Lets's find some podcasts to follow
+                    </h3>
+                    <p1>
+                        We'll keep you updated on new episodes
+                    </p1>
+                    <div class="left-3-div">
+                        <button>
+                            Browse podcasts 
+                        </button>
+                    </div>
+                </div>
+            
+                <div class="div-left-4">
+                    <p1>
+                        Legal
+                    </p1>
+                    <p1>
+                        Safety & Privacy Center 
+                    </p1>
+                    <p1>
+                        Privacy Policy
+                    </p1>
+                    <p1>
+                        Cookies
+                    </p1>
+                    <p1>
+                        About Ads
+                    </p1>
+                    <p1>
+                        Accessibility
+                    </p1>
+            
+                    <p3>
+                        Cookies
+                    </p3>
+            
+                    <div>
+                        <button>
+                            @ English
+                        </button>
+                    </div>
+                </div>
+            
+            </div>
+            
+            <div class="right-div">
+            
+                <div class="top-div">
+                    <div class="top-div-1">
+                        <img class="home-logo" src="home-logo.png">
+                    </div>
+                    <div class="search-1">
+                        <input class="top-search-1" type="text" placeholder=" @       What do you want to play ?                                      |">
+                    </div>
+                </div>
+                
+                <div class="artist-div">
+                    <div class="artist-info-topdiv">
+                        <h2 class="artist-h2">
+                        Popular artists
+                        </h2>
+                        <p3 class="see-more">
+                            See more
+                        </p3>
+                    </div>
+                    
+                    <div class="artists-info">
+                        <div class="artist-1">
+                            <img class="profile-pic1" src="profile1.png">
+                        
+                            <h3>
+                                Pritam
+                            </h3>
+                            <p1>
+                                Artist 
+                            </p1>
+                            <div class="play-but-1">
+                
+                            </div>
+                        </div>
+                
+                        <div class="artist-2">
+                            <img class="profile-pic2" src="profile2.png">
+                
+                            <h3>
+                                Sachin-Jigar
+                            </h3>
+                            <p1>
+                                Artist 
+                            </p1>
+                            <div class="play-but-2">
+                
+                            </div>
+                        </div>
+                
+                        <div class="artist-3">
+                            <img class="profile-pic3" src="profile3.png">
+                
+                            <h3>
+                                Arijit Singh
+                            </h3>
+                            <p1>
+                                Artist 
+                            </p1>
+                            <div class="play-but-3">
+                
+                            </div>
+                        </div>
+                
+                        <div class="artist-4">
+                            <img class="profile-pic4" src="profilepic4.png">
+                
+                            <h3>
+                                Atif Aslam
+                            </h3>
+                            <p1>
+                                Artist 
+                            </p1>
+                            <div class="play-but-4">
+                
+                            </div>
+                        </div>
+                
+                        <div class="artist-5">
+                            <img class="profile-pic5" src="profile5.png">
+                
+                            <h3>
+                                A.R Rahman
+                            </h3>
+                            <p1>
+                                Artist 
+                            </p1>
+                            <div class="play-but-5">
+                
+                            </div>
+                        </div>
+                
+                        <div class="artist-6">
+                            <img class="profile-pic5" src="profile6.png">
+                
+                            <h3>
+                                Vishal-Shekhar
+                            </h3>
+                            <p1>
+                                Artist 
+                            </p1>
+                            <div class="play-but-6">
+                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="album-div">
+                    <div class="album-info-topdiv">
+                        <h1 class="popular-h2">
+                            Popular albums and singles
+                        </h1>
+                        <p3 class="see-more">
+                            See more
+                        </p3>
+                    </div>
+                
+                    <div class="albums-div">
+                
+                        <div class="album-1">
+                            <img class="album-1-pic" src="thumbnail2.png">
+                            <h3>
+                                GLORY
+                            </h3>
+                            <p1>
+                                Yo Yo Honey Singh
+                            </p1>
+                            <div class="play-album-1">
+                
+                            </div>
+                        </div>
+                
+                        <div class="album-2">
+                            <img class="album-2-pic" src="thumbnail1.png">
+                            <h3>
+                                Patandar
+                            </h3>
+                            <p1>
+                                Arjan Dhillon, Mrxci
+                            </p1>
+                            <div class="play-album-2">
+                
+                            </div>
+                        </div>
+                
+                        <div class="album-3">
+                            <img class="album-3-pic" src="thumbnail3.png">
+                            <h3>
+                                Ashiqui 2
+                            </h3>
+                            <p1>
+                                Mithoon, Ankit Tiwari
+                            </p1>
+                            <div class="play-album-3">
+                
+                            </div>
+                        </div>
+                
+                        <div class="album-4">
+                            <img class="album-4-pic" src="thumbnail4.png">
+                            <h3>
+                                Making Memories
+                            </h3>
+                            <p1>
+                                Karan Aujla, ikky
+                            </p1>
+                            <div class="play-album-4">
+                
+                            </div>
+                        </div>
+                
+                        <div class="album-5">
+                            <img class="album-5-pic" src="thumbnail5.png">
+                            <h3>
+                                Jo Tum Mere Ho
+                            </h3>
+                            <p1>
+                                Anuv Jain
+                            </p1>
+                            <div class="play-album-5">
+                
+                            </div>
+                        </div>
+                
+                        <div class="album-6">
+                            <img class="album-6-pic" src="thumbnail6.png">
+                            <h3>
+                                Yeh Jawani Hai Deewani
+                            </h3>
+                            <p1>
+                                Pritam
+                            </p1>
+                            <div class="play-album-6">
+                
+                            </div>
+                        </div>
+                
+                    </div>
+                
+                </div>
+                
+                <div class="radio">
+                
+                    <div class="wp-radio">
+                        <h1>
+                            Popular Radio
+                        </h1>
+                        <p3 style="padding-top: 30px;">
+                            Show all
+                        </p3>
+                    </div>
+                    
+                    <div class="main-radio-div">
+                        <div class="radio-1">
+                            <img class="radio-img-1" src="radio1.png">
+                            <div class="radio-wp-1">
+                                <p3>
+                                    With Sachin-jigar, Amit Trivedi
+                                </p3>
+                            </div> 
+                        </div>
+                    
+                        <div class="radio-2">
+                            <img class="radio-img-2" src="radio2.png">
+                            <div class="radio-wp-2">
+                                <p3>
+                                    With Karan Aujla, Sub, Sidhu Moosewala
+                                </p3>
+                            </div> 
+                        </div>
+                    
+                        <div class="radio-3">
+                            <img class="radio-img-3" src="radio3.png">
+                            <div class="radio-wp-3">
+                                <p3>
+                                    With Mohammad Rafi, Asha Bhose
+                                </p3>
+                            </div> 
+                        </div>
+                    
+                        <div class="radio-4">
+                            <img class="radio-img-4" src="radio4.png">
+                            <div class="radio-wp-4">
+                                <p3>
+                                    With Abhijeet, Uttam Singh, Lata Mangeshwar
+                                </p3>
+                            </div> 
+                        </div>
+                    
+                        <div class="radio-5">
+                            <img class="radio-img-5" src="radio5.png">
+                            <div class="radio-wp-5">
+                                <p3>
+                                    With Pritam, Mohit Chouhan, Armaan
+                                </p3>
+                            </div> 
+                        </div>
+                    
+                        <div class="radio-6">
+                            <img class="radio-img-6" src="radio6.png">
+                            <div class="radio-wp-6">
+                                <p3>
+                                    With A.R. Rahman, Vishal-Shekhar
+                                </p3>
+                            </div> 
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="chart">
+                
+                    <div class="feat-div-top">
+                        <h1>
+                            Featured Charts
+                        </h1>
+                    </div>
+                    
+                    <div class="featured-chart-div2">
+                        <div class="feat-1">
+                            <img class="ft-1" src="ft-1.png">
+                            <div class="ft-wp-1">
+                                <p3>
+                                    Your weekly update of most played Global songs
+                                </p3>
+                            </div>
+                            <div class="green-but-feat-1">
+                
+                            </div>
+                        </div>
+                    
+                        <div class="feat-2">
+                            <img class="ft-2" src="ft-2.png">
+                            <div class="ft-wp-2">
+                                <p3>
+                                    Your weekly update of most played USA songs
+                                </p3>
+                            </div>
+                            <div class="green-but-feat-2">
+                
+                            </div>
+                        </div>
+                    
+                        <div class="feat-3">
+                            <img class="ft-3" src="ft-3.png">
+                            <div class="ft-wp-3">
+                                <p3>
+                                    Your weekly update of most played Top50 GLOBAL songs
+                                </p3>
+                            </div>
+                            <div class="green-but-feat-3">
+                
+                            </div>
+                        </div>
+                    
+                        <div class="feat-4">
+                            <img class="ft-4" src="ft-4.png">
+                            <div class="ft-wp-4">
+                                <p3>
+                                    Your weekly update of most played Top50 USA songs
+                                </p3>
+                            </div>
+                            <div class="green-but-feat-4">
+                
+                            </div>
+                        </div>
+                    
+                        <div class="feat-5">
+                            <img class="ft-5" src="ft-5.png">
+                            <div class="ft-wp-5">
+                                <p3>
+                                    Your weekly update of most played globally viral songs
+                                </p3>
+                            </div>
+                            <div class="green-but-feat-5">
+                
+                            </div>
+                        </div>
+                    
+                        <div class="feat-6">
+                            <img class="ft-6" src="ft-6.png">
+                            <div class="ft-wp-6">
+                                <p3>
+                                    Your weekly update of most played usa viral songs
+                                </p3>
+                            </div>
+                            <div class="green-but-feat-6">
+                
+                            </div>
+                        </div>
+                    
+                    </div>
+                
+                </div>
+                
+                <div class="playlist">
+                    <h1>
+                        Playlists from our editors
+                    </h1>
+                    <div class="playlist-2">
+                
+                        <div class="p-l-1">
+                            <img class="p-img1" src="img1.png">
+                            <div>
+                                <p1>
+                                    All the best in new in classic
+                                </p1>
+                            </div>
+                        </div>
+                
+                        <div class="p-l-2">
+                            <img class="p-img2" src="img2.png">
+                            <div>
+                                <p1>
+                                    Warm instrumental versions of your searches
+                                </p1>
+                            </div>
+                        </div>
+                        
+                        <div class="p-l-3">
+                            <img class="p-img3" src="img3.png">
+                            <div>
+                                <p1>
+                                    Have yourself a chill and lofi xmas
+                                </p1>
+                            </div>
+                        </div>
+                
+                        <div class="p-l-4">
+                            <img class="p-img4" src="img4.png">
+                            <div>
+                                <p1>
+                                    Celebrating women who are spreading
+                                </p1>
+                            </div>
+                        </div>
+                
+                        <div class="p-l-5">
+                            <img class="p-img5" src="img5.png">
+                            <div>
+                                <p1>
+                                    Celebrate the holiday Season with 
+                                </p1>
+                            </div>
+                        </div>
+                
+                        <div class="p-l-6">
+                            <img class="p-img6" src="img6.png">
+                            <div>
+                                <p1>
+                                    Have yourself a little cozy Christmas
+                                </p1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="last-div">
+                    <div class="last-div-1">
+                        <h3>
+                            Compamy
+                        </h3>
+                        <div>
+                            <p1>
+                                About
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Jobs
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                For the Record
+                            </p1>
+                        </div>
+                    </div>
+                
+                    <div class="last-div-2">
+                        <h3>
+                            Communities
+                        </h3>
+                        <div>
+                            <p1>
+                                For Artists 
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Developers
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Advertising
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Investors
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Vendors
+                            </p1>
+                        </div>
+                    </div>
+                
+                    <div class="div-3">
+                        <h3>
+                            Useful links
+                        </h3>
+                        <div>
+                            <p1>
+                                Suppport
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Free Mobile App 
+                            </p1>
+                        </div>
+                    </div>
+                
+                    <div class="div-4">
+                        <h3>
+                            Spotify Plans
+                        </h3>
+                        <div>
+                            <p1>
+                                Premium Iindividual
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Premium Duo
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Premium Family 
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Premium Student
+                            </p1>
+                        </div>
+                        <div>
+                            <p1>
+                                Spotify Free
+                            </p1>
+                        </div>
+                    </div>
+                
+                    <div class="div-9">
+                        <div class="div-5">
+                            <img src="inst-logo.png" style="width: 50px;">
+                        </div>
+                    
+                        <div class="div-6">
+                            <img src="twit-logo.png" style="width: 50px;">
+                        </div>
+                    
+                        <div class="div-7">
+                            <img src="fb-logo.png" style="width: 50px;">
+                        </div>
+                    </div>
+                   
+                </div>
+                
+                <div>
+                    <p1 class="a2024">
+                        @2024 Spotify AB
+                    </p1>
+                </div>
+            
+            </div>
+        
+        </div>
+    </body>
+</html>
