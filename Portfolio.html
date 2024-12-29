@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Portfolio
+    </title>
+
+    <head>
+        <style>
+            .top-div {
+                display: flex;
+                gap: 40px;
+                height: 55px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 50px;
+                margin-bottom: 100px;
+                background-color: black;
+                justify-content: center;    
+            }
+            .top-div a {
+                color: white;
+                text-decoration: none;
+            }
+            .profile-image {
+                background-color: grey;
+                transition: 0.5s;
+                width: 200px;
+                height: 200px;
+            }
+            .profile-image:hover {
+                height: 400px;
+                width: 400px;
+            }
+            #aboutme {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 40px;
+                margin-bottom: 100px;
+            }
+            .profile-intro h3 {
+                text-align: center;
+            }
+            .profile-intro p1 {
+                text-align: left;
+            }
+        
+            #skills {
+                background-color: rgb(245, 245, 245);
+                font-family: Arial, Helvetica, sans-serif;
+                padding-top: 30px;
+                padding-bottom: 50px;
+                margin-bottom: 100px;
+                text-align: center;
+            }
+            
+            .skills-disc {
+                display: flex;
+                gap: 50px;
+            }
+            .html  {
+                background-color: white;
+                text-align: center;
+            }
+            .html:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            .css  {
+                background-color: white;
+                text-align: center;
+            }
+            .css:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            .js  {
+                background-color: white;
+                text-align: center;
+            }
+            .js:hover {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            #projects {
+                text-align: center;
+                margin-bottom: 100px;
+            } 
+            .proj-disc {
+                display: flex;
+                justify-content: center;
+                gap: 30px;
+               
+            }
+            .proj-1 {
+                background-color: rgb(240, 240, 240); 
+                width: 300px;
+            }
+            .proj-2 {
+                background-color: rgb(240, 240, 240); 
+                width: 300px;
+            }
+            .proj-3 {
+                background-color: rgb(240, 240, 240); 
+                width: 300px;
+            }
+            #contact {
+                background-color: rgb(240, 240, 240);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                padding-bottom: 30px;
+                margin-top: 50px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+            .name-bar {
+                width: 400px;
+                height: 30px;
+                border-radius: 7px;
+                border: none;
+                margin-bottom: 10px;
+            }
+            .email-bar {
+                width: 400px;
+                height: 30px;
+                border-radius: 6px;
+                border: none;
+                margin-bottom: 10px;
+            }
+            .mess-bar {
+                width: 400px;
+                height: 40px;
+                border-radius: 7px;
+                border: none;
+                margin-bottom: 10px;
+            }
+            #contact button {
+                width: 400px;
+                height: 30px;
+                background-color: rgb(62, 155, 255);
+                color: white;
+                border: none;
+            }
+            .rights {
+                display: flex;
+                height: 40px;
+                align-items: center;
+                justify-content: center;
+                background-color: black;
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="top-div">
+            <a href="#aboutme">About me </a>
+            <a href="#skills">Skills </a>
+            <a href="#projects">Projects </a>
+            <a href="#contact">Contact </a>
+        </div>
+        
+        <div id="aboutme">
+            <div class="profile-pic">
+                <img class="profile-image" src="" alt="profilepic">
+            </div>
+            <div id="#12">
+                <h3>
+                    Hello, I'm Sandeep Rout
+                </h3>
+                <p1>
+                    I'm a passionate front-end developer with expertise in HTML and CSS. I love building intractive and responsive websites. Welcome to my Portfolio!
+                </p1>
+            </div>
+        </div>
+        
+        <div id="skills">
+            <div class="sills-top">
+                <h2>
+                    Skills
+                </h2>
+            </div>
+            <div class="skills-disc">
+                <div class="html">
+                    <h3>
+                        HTML 
+                    </h3>
+                    <p1>
+                        Building semantic, accessible websites with HTML5 
+                    </p1>
+                </div>
+                <div class="css">
+                    <h3>
+                        CSS 
+                    </h3>
+                    <p1>
+                        Creating beautiful and responsive designs using CSS3. 
+                    </p1>
+                </div>
+                <div class="js">
+                    <h3>
+                        JavaScript
+                    </h3>
+                    <p1>
+                        Making websites interactive and dynamic with JavaScript 
+                    </p1>
+                </div>
+            </div>
+        </div>
+        
+        <div id="projects">
+            <h2>
+                Projects 
+            </h2>
+            <div class="proj-disc">
+                <div class="proj-1">
+                    <h3>
+                        Youtube Clone
+                    </h3>
+                    <p1>
+        
+                    </p1>
+                </div>
+        
+                <div class="proj-2">
+                    <h3>
+                        Apple Webpage clone
+                    </h3>
+                    <p1>
+                        
+                    </p1>
+                </div>
+        
+                <div class="proj-3">
+                    <h3>
+                        Amazon Homepage
+                    </h3>
+                    <p1>
+                        
+                    </p1>
+                </div>
+            </div>
+        </div>
+        
+        <div id="contact">
+            <div>
+                <h1>
+                    Contact Me 
+                </h1>
+            </div>
+            <div class="name">
+                <input class="name-bar" type="text" placeholder="  Your Name">
+            </div>
+            <div class="email">
+                <input class="email-bar" type="text" placeholder="  Your Email">
+            </div>
+            <div class="mess">
+                <input class="mess-bar" type="text" placeholder="  Your Message">
+            </div>
+            <div class="send">
+                <button class="send-mess">
+                    Send Message
+                </button>
+            </div>
+        </div>
+        
+        <div class="rights">
+            <h3>
+                @2024 Sandeep Rout. All rights reserved
+            </h3>
+        </div>
+    </body>
+</html>
