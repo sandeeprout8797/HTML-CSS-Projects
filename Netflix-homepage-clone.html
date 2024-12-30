@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Netflix clone webpage
+    </title>
+
+    <head>
+        <style>
+            .home-page {
+                background-color: black;
+            }
+            .trend-but {
+                background-color: black;
+                width: 2580px;
+                padding-top: 30px;
+                padding-bottom: 30px;
+                margin-top: 0px;
+                padding-left: 300px;
+            }
+            .trend-but button {
+                height: 50px;
+                width: 150px;
+                border: 1px grey solid;
+                margin-right: 80px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 23px;
+                text-align: left;
+                background-color: black;
+                color: white;
+                border-radius: 10px;
+            }
+            .img-1 {
+                height: 400px;
+                width: 300px;
+                border-radius: 15px;
+            }
+            .movie-1 {
+                position: relative;
+            }
+            .top-10 {
+                position: absolute;
+                background-color: red;
+                color: white;
+                border-top-right-radius: 15px;
+                top: 3px;
+                left: 220px;
+                padding: 5px;
+                width: 70px;
+                text-align: center;
+            }
+            .top-10 h1 {
+                margin-top: 0px;
+            }
+            .trending-now {
+                display: flex;
+                width: 2530px;
+                background-color: black;
+                gap: 90px;
+                justify-content: left;
+                padding-left: 350px;
+                padding-bottom: 100px;
+            }
+            .recent-added {
+                position: absolute;
+                background-color: red;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 13px;
+                padding: 5px;
+                padding-top: 0px;
+                border-radius: 5px;
+                height: 50px;
+                bottom: 0px;
+                left: 40px;
+            }
+            .div-1 {
+                position: absolute;
+                top: 50px;
+                right: 220px;
+                color: black;
+                -webkit-text-stroke: 2px white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 100px;
+            }
+        
+        </style>
+        <style>
+            .reasons {
+                display: flex;
+                justify-content: left;
+                padding-left: 300px;
+                background-color: black;
+                gap: 70px;
+                width: 2580px;
+                padding-bottom: 300px;
+            }
+            .reasons-to-join {
+                background-color: black;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 40px;
+                margin-top: 0px;
+                width: 2580px;
+                margin-bottom: 0px;
+                padding-left: 300px;
+                padding-top: 100px;
+                padding-bottom: 50px;
+            }
+            .reason-1 {
+                position: relative;
+                background-color: rgb(43, 0, 84);
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 28px;
+                width: 400px;
+                height: 600px;
+                padding: 25px;
+                border-radius: 20px;
+                color: white;
+            }
+            .reason-1 p1 {
+                color: gray;
+            }
+            .img-res-1 {
+                position: absolute;
+                top: 490px;
+                left: 300px;
+            }
+        </style>
+        <style>
+            .FAQ h1 {
+                background-color: rgb(0, 0, 0);
+                color: white;
+                padding: 20px;
+                width: 2560px;
+                padding-left: 300px;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 40px;
+                margin-top: 0px;
+                margin-bottom: 0px;
+            }
+            .freq-1 {
+                display: flex;
+                justify-content: space-between;
+                background-color: rgb(55, 55, 55);
+                color: white;
+                font-size: 25px;
+                border-radius: 10px;
+                padding-left: 20px;
+                padding-right: 20px;
+                width: 2000px;
+            }
+            .freq {
+                background-color: black;
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                width: 2580px;
+                padding-left: 300px;
+                padding-bottom: 150px;
+            }
+            .freq-1:hover {
+                background-color: rgb(75, 75, 75);
+            }
+        </style>
+        <style>
+            .ready {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                width: 2880px;
+                justify-content: center;
+                background-color: black;
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                padding-bottom: 200px;
+            }
+            .mail-box {
+                width: 850px;
+                height: 80px;
+                border: 1px gray solid;
+                background-color: black;
+                color: gray;
+                margin-right: 10px;
+                border-radius: 10px;
+                font-size: 25px;
+            }
+            .ready-butt {
+                background-color: red;
+                color: white;
+                border: none;
+                height: 80px;
+                width: 300px;
+                border-radius: 10px;
+                font-size: 30px;
+            }
+            .ready-butt:hover {
+                background-color: rgb(165, 0, 0);
+            }
+        </style>
+        <style>
+            .h3-div {
+                display: flex;
+                justify-content: left;
+                font-family: Arial, Helvetica, sans-serif;
+                font-size: 20px;
+                margin-top: 0px;
+                padding-left: 600px;
+                margin-bottom: 0px;
+                color: gray;
+                background-color: black;
+                width: 2280px;
+            }
+            .last-div  {
+                display: flex;
+                justify-content: left;
+                gap: 100px;
+                text-decoration: underline;
+                padding-left: 600px;
+                color: gray;
+                background-color: black;
+                padding-top: 50px;
+                width: 2280px;
+                padding-bottom: 100px;
+            }
+            .div-last {
+                background-color: black;
+                color: gray;
+                padding-left: 600px;
+                font-family: Arial, Helvetica, sans-serif;
+                padding-bottom: 500px;
+                width: 2280px;
+            }
+            .div-last button {
+                height: 45px;
+                width: 150px;
+                border-radius: 7px;
+                background-color: black;
+                color: white;
+                border: 1px gray solid;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="home-page">
+            <img class="home-page-bg" src="top-img-2.png">
+        </div>
+        
+        <div class="trend-but">
+            <button>
+                India  
+            </button>
+            <button>
+                Movies
+            </button>
+        </div>
+        
+        <div class="trending-now">
+            <div class="movie-1">
+                <img class="img-1" src="pic1.png">
+        
+                <div class="top-10">
+                    <p3>
+                        TOP 
+                    </p3>
+                    <h1>
+                        10
+                    </h1>
+                </div>
+        
+                <div class="recent-added">
+                    <h1>
+                        Recently added
+                    </h1>
+                </div>
+        
+                <div class="div-1">
+                    <h1>
+                        1
+                    </h1>
+                </div>
+            </div>
+        
+            <div class="movie-1">
+                <img class="img-1" src="pic2.png">
+        
+                <div class="top-10">
+                    <p3>
+                        TOP 
+                    </p3>
+                    <h1>
+                        10
+                    </h1>
+                </div>
+        
+                <div class="recent-added">
+                    <h1>
+                        Recently added
+                    </h1>
+                </div>
+        
+                <div class="div-1">
+                    <h1>
+                        2
+                    </h1>
+                </div>
+        
+            </div>
+        
+            <div class="movie-1">
+                <img class="img-1" src="pic3.png">
+        
+                <div class="top-10">
+                    <p3>
+                        TOP 
+                    </p3>
+                    <h1>
+                        10
+                    </h1>
+                </div>
+        
+                <div class="recent-added">
+                    <h1>
+                        Recently added
+                    </h1>
+                </div>
+        
+                <div class="div-1">
+                    <h1>
+                        3
+                    </h1>
+                </div>
+            </div>
+        
+            <div class="movie-1">
+                <img class="img-1" src="pic4.png">
+        
+                <div class="top-10">
+                    <p3>
+                        TOP 
+                    </p3>
+                    <h1>
+                        10
+                    </h1>
+                </div>
+        
+                <div class="recent-added">
+                    <h1>
+                        Recently added
+                    </h1>
+                </div>
+        
+                <div class="div-1">
+                    <h1>
+                        4
+                    </h1>
+                </div>
+            </div>
+        
+            <div class="movie-1">
+                <img class="img-1" src="pic5.png">
+        
+                <div class="top-10">
+                    <p3>
+                        TOP 
+                    </p3>
+                    <h1>
+                        10
+                    </h1>
+                </div>
+        
+                <div class="recent-added">
+                    <h1>
+                        Recently added
+                    </h1>
+                </div>
+        
+                <div class="div-1">
+                    <h1>
+                        5
+                    </h1>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div>
+            <h1 class="reasons-to-join">
+                More reasons to join
+            </h1>
+        
+            <div class="reasons">
+                <div class="reason-1">
+                    <h1>
+                        Enjoy on your TV
+                    </h1>
+                    <p1>
+                        Watch on smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players and more.
+                    </p1>
+                    <div class="img-res-1">
+                        <img src="img1.png">
+                    </div>
+                </div>
+        
+                <div class="reason-1">
+                    <h1>
+                        Download your shows to watch offline 
+                    </h1>
+                    <p1>
+                        Save your favourites easily and always have something to watch 
+                    </p1>
+                    <div class="img-res-1">
+                        <img src="img2.png">
+                    </div>
+                </div>
+        
+                <div class="reason-1">
+                    <h1>
+                       Watch everywhere
+                    </h1>
+                    <p1>
+                        Save your favourites easily and always have something to watch
+                    </p1>
+                    <div class="img-res-1">
+                        <img src="img3.png">
+                    </div>
+                </div>
+        
+                <div class="reason-1">
+                    <h1>
+                        Create profiles for kids 
+                    </h1>
+                    <p1>
+                        Send kids on adventures with their favourite characters in a space made for just them -free with your membership
+                    </p1>
+                    <div class="img-res-1">
+                        <img src="img1.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="FAQ">
+            <h1>
+                Frequently Asked Questions 
+            </h1>
+            <div class="freq">
+                <div class="freq-1">
+                    <h3>
+                        What is Netflix? 
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+        
+                <div class="freq-1">
+                    <h3>
+                        How much does Netflix cost?
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+        
+                <div class="freq-1">
+                    <h3>
+                        Where can I watch?
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+        
+                <div class="freq-1">
+                    <h3>
+                        How do I cancel?
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+        
+                <div class="freq-1">
+                    <h3>
+                        What can I watch on Netflix?
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+        
+                <div class="freq-1">
+                    <h3>
+                        Is Netflix good for kids?
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+        
+                <div class="freq-1">
+                    <h3>
+                        What is Netflix? 
+                    </h3>
+                    <h3>
+                        +
+                    </h3>
+                </div>
+            </div>
+            
+        </div>
+        
+        <div class="ready">
+            <div>
+                <h3>
+                    Ready too watch? Enter your email to create or restart your membership.
+                </h3>
+            </div>
+            
+            <div class="ready-2">
+                <input class="mail-box" type="text" placeholder="     Email address">
+                <button class="ready-butt">
+                    Get Started   >
+                </button>
+            </div>
+        
+        </div>
+        
+        <h3 class="h3-div">
+            Question? Call 000-800-919-1743
+        </h3>
+        
+        <div class="last-div">
+            <div class="l-div-1">
+                <h3>
+                    FAQ
+                </h3>
+                <h3>
+                    Investor Relation
+                </h3>
+                <h3>
+                    Privacy
+                </h3>
+                <h3>
+                    Speed Test
+                </h3>
+            </div>
+        
+            <div class="l-div-1">
+                <h3>
+                    Help center 
+                </h3>
+                <h3>
+                    Jobs
+                </h3>
+                <h3>
+                    Cookie Preferences
+                </h3>
+                <h3>
+                    Legal Notices
+                </h3>
+            </div>
+        
+            <div class="l-div-1">
+                <h3>
+                    Account
+                </h3>
+                <h3>
+                    Ways to Watch
+                </h3>
+                <h3>
+                    Corporate Information
+                </h3>
+                <h3>
+                    Only on Netflix
+                </h3>
+            </div>
+        
+            <div class="l-div-1">
+                <h3>
+                    Media Center
+                </h3>
+                <h3>
+                    Terms of Use 
+                </h3>
+                <h3>
+                    Contact us
+                </h3>
+            </div>
+        </div>
+        
+        <div class="div-last">
+            <button>
+                @ English
+            </button>
+        
+            <h3>
+                Netflix India
+            </h3>
+        </div>
+    </body>
+</html>
