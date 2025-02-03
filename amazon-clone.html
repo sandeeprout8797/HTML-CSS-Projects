@@ -1,0 +1,1841 @@
+<!DOCTYPE html>
+<html>
+    <title>
+        Amazon Clone
+    </title>
+
+    <head>
+        <style class="top-division">
+            .division-top {
+                display: flex;
+                flex-direction: row;
+                gap: 0px;
+                height: 110px;
+                align-items: center;
+                background-color: rgba(19, 26, 34);
+            }
+            .amazon-logo-img {
+                width: 250px;
+                height: 100px;
+               border: none;
+            }
+            .delivery-div {
+                width: 350px;
+                height: 100px;
+                background-color: rgba(19, 26, 34);  
+                color: white;
+                text-align: left;
+                font-size: 15px;
+                border: 0px;
+            }
+            .delivery-div:hover {
+                border: 0.5px white solid;
+                cursor: pointer;
+            }
+            .search-all-div-button {
+                width: 100px;
+                height: 80px;
+                background-color: rgb(226, 226, 226);
+                border: none;
+                border-right: 1px solid rgb(155, 155, 155);
+                border-top-left-radius: 8px;
+                border-bottom-left-radius: 8px;
+            }
+            .searchbox {
+                width: 1250px;
+                height: 78px;
+                border: none;
+            }
+            .search-icon-div {
+                background-color: rgb(255, 174, 0);
+                color: black;
+                height: 80px;
+                width: 100px;
+                text-align: center;
+                font-size: 50px;
+                border: none;
+                border-left: 1px solid rgb(222, 152, 2);
+                border-top-right-radius: 8px;
+                border-bottom-right-radius: 8px;
+            }
+            .lan-div-button {
+                width:175px;
+                height: 100px;
+                color: white;
+                border: 0px;
+                background-color: rgba(19, 26, 34);
+                padding-left: 30px;
+                padding-top: 30px;
+            }
+            .lan-div-button:hover {
+                cursor: pointer;
+                border: 1px white solid;
+            }
+        
+            .signin-button {
+                height: 100px;
+                width: 270px;
+                font-size: 23px;
+                text-align: left;
+                background-color: rgba(19, 26, 34);
+                color: white;
+                border: 0px;
+            }
+            .signin-button:hover {
+                border: 1px white solid;
+            }
+            .parent-signin-div {
+                position: relative;
+            }
+            .relative-signin {
+                position: absolute;
+                width: 300px;
+                height: 300px;
+                transition: opacity 0.3s ease;
+                top: 90px;
+                left: -90px;
+                background-color: pink;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .relative-signin:hover {
+                opacity: 0;
+            }
+            .parent-signin-div:hover .relative-signin {
+                opacity: 1;
+                border: 0.5px black solid;
+            }
+        
+            .return-div button {
+                height: 100px;
+                width: 300px;
+                color: white;   
+                background-color: rgba(19, 26, 34);
+                border: none;
+                border: 1px black solid;
+                font-size: 20px;
+                text-align: center;
+                
+            }
+            .return-div button:hover {
+                border: 1px white solid ;
+            }
+            .cart-logo-img {
+                height: 100px;
+                margin-top: 0px;
+            }
+        </style>
+        
+        <style class="menudiv-relative">
+            .menu {
+                font-size: 25px;
+                width: 350px;
+            }
+            .menu div {
+                height: 70px;
+                width: 350px;
+                background-color: white;
+            }
+            .menu-div-1 {
+                padding-left: 0px;
+                text-align: center;
+                background-color: rgb(18, 26, 34);
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;        
+            }
+            .menu div:hover {
+                background-color: rgb(226, 226, 226);
+                cursor: pointer;
+            }
+        
+        </style>
+            
+        <style class="menu-signin-relative-class">
+            .relative-signin {
+                width: 500px;
+                height: 660px;
+                border-radius: 10px;
+                display: inline-block;
+                border: none;
+                font-size: 20px;
+                background-color: white;
+                padding-top: 20px;
+            }
+            .prt-1 button {
+                width: 320px;
+                height: 50px;
+                background-color: rgb(255, 217, 0);
+                border: none;
+                border-radius: 9px;
+                margin-left: 70px;
+            }
+            .prt-2 {
+                margin-left: 150px;
+                margin-top: 10px;
+                margin-bottom: 10px;
+            }
+            .prt-2 p2 {
+                color: blue;
+            }
+            .prt3 {
+                display: flex;
+            }
+            .left-prt div {
+                margin-top: 0px;
+                margin-bottom: 7px;
+            }
+            .right-prt div {
+                margin-top: 0px;
+                margin-bottom: 7px;
+            }
+        </style>
+        
+        <style class="sec-division">
+            .division-sec {
+                height: 73px;
+                background-color: rgba(34,47,62,255);
+                display: flex;
+                justify-content: space-evenly;
+            }
+            .division-sec button {
+                background-color: rgba(34,47,62,255);
+                font-family: Arial, Helvetica, sans-serif;
+                color: white;
+                padding-left: 25px;
+                padding-right: 25px;
+                height: 70px;
+                border-radius: 8px;
+                border: 1px rgba(34,47,62,255) solid;
+                font-size: 25px;
+            }
+            .division-sec button:hover {
+                border: 1px white solid;
+            }
+        
+            .all-class-menu {
+                position: relative;
+            }
+            .menu {
+                background-color: white;
+                position: absolute;
+                top: 60px;
+                left: -40px;
+                opacity: 0;
+                pointer-events: none;
+            }
+            .all-class-menu:hover .menu {
+                opacity: 1;
+            }
+        
+        </style>
+        
+        <style class="grid-product">
+            .prod1, .prod2, .prod3, .prod4, .prod5, .prod6, .prod7, .prod8, .prod9, .prod10 {
+                display: inline-block;
+            }
+             .prod1 div, .prod2 div, .prod3 div, .prod4 div, .prod5 div, .prod6 div, .prod7 div, .prod8 div, .prod9 div, .prod10 div{
+                font-size: 20px;
+            }
+            .thumbnail-1-img, .thumbnail-2-img, .thumbnail-3-img, .thumbnail-4-img, .thumbnail-5-img, .thumbnail-6-img, .thumbnail-7-img, .thumbnail-8-img, .thumbnail-9-img, .thumbnail-10-img  {
+                width: 300px;
+            }
+            .offer1 p1, .offer2 p1, .offer1 p3, .offer4 p1, .offer5 p1, .offer6 p1, .offer7 p1, .offer8 p1, .offer9 p1, .offer10 p1  {
+                background-color: red;
+                padding-left: 10px;
+                padding-right: 10px;
+                margin-right: 20px;
+            }
+            .offer1 p2, .offer2 p2 .offer3 p2, .offer4 p2 .offer5 p2, .offer6 p2 .offer7 p2, .offer8 p2 .offer9 p2, .offer10 p2 {
+                color: red;
+            }
+            .prod-disc1, .prod-disc2, .prod-disc3, .prod-disc4, .prod-disc5, .prod-disc6, .prod-disc7, .prod-disc8, .prod-disc9, .prod-disc10   {
+                text-overflow: clip;
+                overflow: hidden;
+                width: 300px;
+                height: 50px;
+            }
+            .optn1-1, .optn2-1, .optn3-1, .optn4-1, .optn5-1, .optn6-1, .optn7-1, .optn8-1, .optn9-1, .optn10-1 {
+                height: 30px;
+                width: 30px;
+                display: inline-block;
+                border-radius: 15px;
+                background-color: rgb(0, 0, 108);
+                border: 1px rgb(255, 255, 255) solid;
+            }
+            .optn1-1:hover, .optn2-1:hover, .optn3-1:hover, .optn4-1:hover, .optn5-1:hover, .optn6-1:hover, .optn7-1:hover, .optn8-1:hover, .optn9-1:hover, .optn10-1:hover {
+                border: 2px black solid;
+            }
+            .optn1-2, .optin2-2, .optn3-2, .optin4-2, .optn5-2, .optin6-2, .optn7-2, .optin8-2, .optn9-2, .optin10-2{
+                height: 30px;
+                width: 30px;
+                display: inline-block;
+                border-radius: 15px;
+                background-color: rgb(0, 0, 108);
+                border: 1px rgb(255, 255, 255) solid;
+            }
+            .optn1-2:hover, .optn2-2:hover, .optn3-2:hover, .optn4-2:hover, .optn5-2:hover, .optn6-2:hover, .optn7-2:hover, .optn8-2:hover, .optn9-2:hover, .optn10-2:hover {
+                border: 2px black solid;
+            }
+            .saveing1, .saveing2, .saveing3, .saveing4, .saveing5, .saveing6, .saveing7, .saveing8, .saveing9, .saveing10 {
+                height: 30px;
+                width: 330px;
+            }
+            
+            
+        </style>
+        
+        <style class="option-filter">
+            .filter-option {
+                font-size: 20px;
+                width: 800px;
+                background-color: white;
+                text-overflow: clip;
+                overflow: hidden;
+            }
+            .filter-circle {
+                height: 30px;
+                width: 30px;
+                border-radius: 30px;
+                background-color: white;
+                border: 1px black solid;
+                margin-right: 10px;
+            }
+            .filter-circle:hover {
+                height: 15px;
+                width: 15px;
+                border-radius: 30px;
+                display: inline-block;
+                background-color: white;
+                border: 10px rgb(38, 107, 132) solid;
+               
+            }
+            .div-a {
+                display: flex;
+                margin-bottom: 5px;
+            }
+        </style>
+        
+        <style class="div-lower">
+            .lower-div {
+                display: flex;
+                flex-direction: row;
+                margin-bottom: 1000px;
+            }
+        </style>
+        
+        <style class="div-last-end">
+            .last-a {
+                display: flex;
+                justify-content: center;
+                font-family: Arial, Helvetica, sans-serif;
+                background-color: rgb(27, 65, 108);
+                color: white;
+                align-items: center;
+                height: 50px;    
+            }
+            .last-b {
+                display: flex;
+                justify-content: center;
+                background-color: rgb(40, 59, 75);
+                color: white;
+                font-family: Arial, Helvetica, sans-serif;
+                padding-bottom: 80px;
+            }
+            .last-b div {
+                margin-top: 10px;
+            }
+            
+            .b-1 {
+                text-align: left;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 18px;
+                padding-right: 200px;
+            }
+            .b-2 {
+                text-align: left;
+                vertical-align: top;
+                display: inline-block;
+                font-size: 18px;
+                padding-right: 200px;
+            }
+            .b-3 {
+                text-align: left;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 18px;
+                padding-right: 200px;
+            }
+            .b-4 {
+                text-align: left;
+                display: inline-block;
+                vertical-align: top;
+                font-size: 18px;
+                padding-right: 200px;
+            }
+            
+            .last-c {
+                display: flex;
+                gap: 10px;
+                justify-content: center;
+                align-items: center;
+                background-color: rgba(19, 26, 34);
+            }
+            .last-c button {
+                width: 150px;
+                height: 50px;
+                border-radius: 5px;
+                border: 1px white solid;
+                background-color: rgba(19, 26, 34);
+                color: white;
+            }
+            .last-d {
+                background-color: rgba(19, 26, 34);
+                color: white;
+                display: flex;
+                justify-content: center;
+                text-align: left;
+                gap: 500px;
+                padding-bottom: 50px;
+                margin-bottom: 100px;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="division-top">
+
+            <div class="amazon-logo">
+                <img class="amazon-logo-img" src="amazon-images/amazonlogo.png">
+            </div>
+        
+            <button class="delivery-div">
+                <i>
+                    &#xf3c5;
+                </i>
+                <div style="display: inline-block;
+                                    margin-left: 5px;">
+                    <p1>
+                        Delivering to New Delhi 110020
+                    </p1>
+                    <h3 style="margin-top: 0px;
+                                text-align: left;">
+                        Update location
+                    </h3>
+                </div>
+            </button>              
+                    
+            <div class="search-all-div">
+                <button class="search-all-div-button">
+                    All ~
+                </button>
+            </div>
+        
+            <input class="searchbox" type="text" placeholder="   Search Amazon.in">
+        
+            <div class="search-icon-div">
+                <button>
+                    <i>
+                        &#xf3c5;
+                    </i>
+                </button>
+            </div>
+        
+            <div class="lan-div">
+                <button class="lan-div-button">
+                    <i>
+                        &#xf3c5;
+                    </i>
+                   <h1 style="display: inline-block;
+                                margin-left: 10px;">
+                    EN
+                   </h1>
+                </button>
+                
+            </div>
+        
+        
+            <div class="parent-signin-div">
+                <button class="signin-button">
+                        <div style="padding-top: 20px;">
+                            <p1>
+                                Hello, sign in
+                            </p1>
+                            <h3 style="margin-top: 0px;">
+                                Account & Lists ~
+                            </h3>
+                        </div>
+                        
+                </button>
+        
+                <div class="relative-signin">
+                    <div class="prt-1">
+                        <button>
+                            Sign in
+                        </button>
+                    </div>
+                    <div class="prt-2">
+                        <p1>
+                            New customer?
+                        </p1>
+                        <p2>
+                            Start here
+                        </p2>
+                    </div>
+                    <div class="prt3">
+                        <div class="left-prt" style="border: 1px solid rgb(167, 166, 166);
+                                                    padding: 10px;
+                                                    border-left: 0px;
+                                                    border-bottom: 0px;">
+                            <h3>
+                                Your Lists
+                            </h3>
+                            <div>
+                                Create a Wish List
+                            </div>
+                            <div>
+                                Wish from Any Website 
+                            </div>
+                            <div>
+                                Baby Wishlist
+                            </div>
+                            <div>
+                                Discover Your Style
+                            </div>
+                            <div>
+                                Explore Showroom 
+                            </div>
+                        </div>
+                
+                        <div class="right-prt" style="border: 1px solid  rgb(167, 166, 166);
+                                                    padding: 10px;
+                                                    border-right: 0px;
+                                                    border-left: 0px;
+                                                    border-bottom: 0px;">
+                            <h3>
+                                Your Account
+                            </h3>
+                            <div>
+                                Your Account
+                            </div>
+                            <div>
+                                Your Orders
+                            </div>
+                            <div>
+                                Your Wish Lists
+                            </div>
+                            <div>
+                                Your Recomendations
+                            </div>
+                            <div>
+                                Your Prime Membership
+                            </div>
+                            <div>
+                                Your Prime Video
+                            </div>
+                            <div>
+                                Your Subscribe & Subscription
+                            </div>
+                            <div>
+                                Membership & Subscription
+                            </div>
+                            <div>
+                                Your Seller Account
+                            </div>
+                            <div>
+                                Manage Your Content and Devices
+                            </div>
+                            <div>
+                                Regiter for a free Buisness Account
+                            </div>
+                        </div>
+                
+                    </div>
+                </div>
+                    
+            </div>
+                
+        
+        
+            <div class="return-div">
+                <button>
+                    <div style="padding-top: 20px;">
+                        <p1>
+                            Returns 
+                        </p1>
+                        <h3 style="margin-top: 0px;">
+                            & Orders
+                        </h3>
+                    </div>
+                    
+                </button>
+            </div>
+        
+            <div class="cart-div">
+                <img class="cart-logo-img" src="cartlogo.png">
+            </div>
+        
+        </div>
+        
+        <div class="division-sec">
+            <div class="all-class-menu">
+                <button>
+                    = All
+                </button>
+        
+                <div class="menu">
+                    <div class="menu-div-1" style="background-color: rgba(19, 26, 34);">
+                        <i>
+                            &#xf3c5;
+                        </i>
+                
+                        <h3 style="display: inline-block;
+                                    margin-left: 15px;">
+                            Hello, sign in
+                        </h3>
+                    </div>
+                    
+                    <h3>
+                        Trending
+                    </h3>
+                    <div>
+                        <p1>
+                            Best Sellers
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Best Sellers
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            New Releases
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Movers and Shakers
+                        </p1>
+                    </div>
+                    <h3>
+                        Digital Content and Devices
+                    </h3>
+                    <div>
+                        <p1>
+                            Amazon miniTV-Free entertaintment
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Echo & Alexa
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Fire TV
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Kindle E-Readers & eBooks
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Audible Audiobooks
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Amazon Prime Video
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Amazon Prime Music
+                        </p1>
+                    </div>
+                    
+                    <h3>
+                        Shop by Category
+                    </h3>
+                    <div>
+                        <p1>
+                           Mobile, Computers
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            TV, Applications,  Electronics
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Men`s Fasion
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Women`s Fashion
+                        </p1>
+                    </div>
+                
+                </div>
+        
+            </div>
+            <div>
+                <button>
+                    Fresh 
+                </button>
+            </div>
+            <div>
+                <button>
+                    MX PLayer 
+                </button>
+            </div>
+            <div>
+                <button>
+                    Sell
+                </button>
+            </div>
+            <div>
+                <button>
+                    Best Sellers
+                </button>
+            </div>
+           <div>
+            <button>
+                Todays Deals
+            </button>
+           </div>
+           <div>
+                <button>
+                    Mobiles
+                </button>
+            </div>
+            <div>
+                <button>
+                    Customer Service
+                </button>
+            </div>
+            <div>
+                <button>
+                    Prime
+                </button>
+            </div>
+            <div>
+                <button>
+                    Electronics
+                </button>
+            </div>
+            <div>
+                <button>
+                    Home & Kitchen
+                </button>
+            </div>
+            <div>
+                <button>
+                    Amazon Pay
+                </button>
+            </div>
+            <div>
+                <button>
+                    New Releases
+                </button>
+            </div>
+            <div>
+                <button>
+                    Fashion 
+                </button>
+            </div>
+            <div>
+                <button>
+                    Car & Motorbike
+                </button>
+            </div>
+            <div>
+                <button>
+                    Computers
+                </button>
+            </div>
+        </div>
+        
+        <div class="lower-div">
+        
+            <div class="filter-option">
+                <h3>
+                    Department
+                </h3>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        All
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Amazon Devices & Accessories
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Baby
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Bags, wallets and Luggage 
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Beauty
+                    </p1>
+                </div>
+                <p1>
+                    ~ See more
+                </p1>
+            
+                <h3>
+                    Customer Reviews
+                </h3>
+            
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        All
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        * * * * _
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        * * * _ _
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        * * _ _ _
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        * _ _ _ _
+                    </p1>
+                </div>
+            
+                <h3>
+                    Price 
+                </h3>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        All
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Under $ 500
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Under $ 1,000
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Under $ 2,000
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        Under $ 5,000
+                    </p1>
+                </div>
+            
+                <h3>
+                    Discount
+                </h3>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        10% off or more
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        25% off or more
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        50% off or more
+                    </p1>
+                </div>
+                <div class="div-a">
+                    <div class="filter-circle">
+                    
+                    </div>
+                    <p1>
+                        70% off or more
+                    </p1>
+                </div>
+            </div>
+        
+            <div class="product-grid">
+        
+                <div class="prod1">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-1-img" src="amazon-images/thumbnail1.png">
+                    </div>
+                    <div>
+                        <div class="offer1">
+                            <p1>
+                                17% off
+                            </p1>
+                            <p2>
+                                Limited time deal
+                            </p2>
+                        </div>
+                        <div class="prod-disc1">
+                            realme NARZO N61 (Voyage Blue,4GB RAM+64GB Storage)
+                        </div>
+                        <div class="colour-optn">
+                            <div class="optn1-1">
+                                
+                            </div>
+                            <div class="optn1-2">
+                    
+                            </div>
+                        </div>
+                        <div class="saveing1">
+                            Save $1,000.00 with coupon
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="prod2">
+                    <div class="thumbnail2">
+                        <img class="thumbnail-2-img" src="amazon-images/thumbnail2.png">
+                    </div>
+                    <div class="offer2">
+                        <p1 style="background-color: red;">
+                            37% off
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc1" style="width: 300px;">
+                        Apple Macbook Air Laptop: Apple M1 chip, 13.3-inch?33.74cm Retina Display
+                    </div>
+                    <div class="colour-optn2">
+                        <div class="optn2-1">
+                            
+                        </div>
+                        <div class="optn2-2">
+                
+                        </div>
+                    </div>
+                    <div class="saveing2">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod3">
+                    <div class="thumbnail3">
+                        <img class="thumbnail-3-img" src="amazon-images/thumbnail3.png">
+                    </div>
+                    <div class="offer3">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc3">
+                        Redmi A4 5G (Sarkle Purple, 4GB RAM, 64GB Storage)| Glow Sarkle
+                    </div>
+                    <div class="colour-optn3">
+                        <div class="optn3-1">
+                            
+                        </div>
+                        <div class="optn3-2">
+                
+                        </div>
+                    </div>
+                    <div class="saveing3">
+                        Save $1,000.00 with coupon
+                    </div>
+                </div>
+                
+                <div class="prod4">
+                    <div class="thumbnail4">
+                        <img class="thumbnail-4-img" src="amazon-images/thumbnail4.png">
+                    </div>
+                    <div class="offer4">
+                        <p1 style="background-color: red;">
+                            15% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc4">
+                        realme Narzo 70 Turbo 5G (Turbo Yellow,6GB RAM, 128Gb)
+                    </div>
+                    <div class="colour-optn">
+                        <div class="optn4-1">
+                            
+                        </div>
+                        <div class="optn4-2">
+                
+                        </div>
+                    </div>
+                    <div class="saveing4">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod5">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-5-img" src="amazon-images/thumbnail5.png">
+                    </div>
+                    <div class="offer5">
+                        <p1 style="background-color: red;">
+                            7% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc5">
+                        Oneplus Nord CE 4 (Dark chrome 8GB RAM, 256GB STORAGE)
+                    </div>
+                    <div class="colour-optn5">
+                        <div class="optn5-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 108);">
+                            
+                        </div>
+                        <div class="optn5-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(122, 244, 251);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing5">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod6">
+                    <div class="thumbnail6">
+                        <img class="thumbnail-6-img" src="amazon-images/thumbnail6.png">
+                    </div>
+                    <div class="offer6">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc6">
+                        realme NARZO N61 5G (Deep Green 6GB RAM+128GB Storage)
+                    </div>
+                    <div class="colour-optn6">
+                        <div class="optn6-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 108);">
+                            
+                        </div>
+                        <div class="optn6-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(255, 198, 198);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing6">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod7">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-7-img" src="amazon-images/thumbnail7.png">
+                    </div>
+                    <div class="offer7">
+                        <p1 style="background-color: red;">
+                            12% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc7">
+                        Redmi Note 14 5G (phantom purple, 8GB RAM, 256GB Storage)
+                    </div>
+                    <div class="colour-optn7">
+                        <div class="optn7-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(158, 158, 254);">
+                            
+                        </div>
+                        <div class="optn7-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 0);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing7">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod8">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-8-img" src="amazon-images/thumbnail10.png">
+                    </div>
+                    <div class="offer8">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc8">
+                        OnePlus Nord 4 5GB (oasis green, 8GB RAM, 256GB Storage)
+                    </div>
+                    <div class="colour-optn8">
+                        <div class="optn8-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 108);">
+                            
+                        </div>
+                        <div class="optn8-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 0);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing8">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod9">
+                    <div class="thumbnail9">
+                        <img class="thumbnail-9-img" src="amazon-images/thumbnail9.png">
+                    </div>
+                    <div class="offer9">
+                        <p1 style="background-color: red;">
+                            26% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc9">
+                        iQOO Z9x %G (Tornado Green, 6GB RAM 128GB Storage) | Snapdrago gen1
+                    </div>
+                    <div class="colour-optn9">
+                        <div class="optn9-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(59, 211, 84);">
+                            
+                        </div>
+                        <div class="optn9-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(255, 255, 255);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing9">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod10">
+                    <div class="thumbnail10">
+                        <img class="thumbnail-10-img" src="amazon-images/thumbnail10.png">
+                    </div>
+                    <div class="offer10">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc10">
+                        iQOO Z95 Pro 5G(Luxe Marble 12GB RAM, 256GB Storage)
+                    </div>
+                    <div class="colour-optn10">
+                        <div class="optn10-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(197, 197, 197);">
+                            
+                        </div>
+                        <div class="optn10-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(244, 99, 99);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing10">
+                        .
+                    </div>
+                </div>
+        
+        
+                <div class="prod1">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-1-img" src="amazon-images/thumbnail1.png">
+                    </div>
+                    <div>
+                        <div class="offer1">
+                            <p1>
+                                17% off
+                            </p1>
+                            <p2>
+                                Limited time deal
+                            </p2>
+                        </div>
+                        <div class="prod-disc1">
+                            realme NARZO N61 (Voyage Blue,4GB RAM+64GB Storage)
+                        </div>
+                        <div class="colour-optn">
+                            <div class="optn1-1">
+                                
+                            </div>
+                            <div class="optn1-2">
+                    
+                            </div>
+                        </div>
+                        <div class="saveing1">
+                            Save $1,000.00 with coupon
+                        </div>
+                    </div>
+                    
+                </div>
+                
+                <div class="prod2">
+                    <div class="thumbnail2">
+                        <img class="thumbnail-2-img" src="amazon-images/thumbnail2.png">
+                    </div>
+                    <div class="offer2">
+                        <p1 style="background-color: red;">
+                            37% off
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc1" style="width: 300px;">
+                        Apple Macbook Air Laptop: Apple M1 chip, 13.3-inch?33.74cm Retina Display
+                    </div>
+                    <div class="colour-optn2">
+                        <div class="optn2-1">
+                            
+                        </div>
+                        <div class="optn2-2">
+                
+                        </div>
+                    </div>
+                    <div class="saveing2">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod3">
+                    <div class="thumbnail3">
+                        <img class="thumbnail-3-img" src="amazon-images/thumbnail3.png">
+                    </div>
+                    <div class="offer3">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc3">
+                        Redmi A4 5G (Sarkle Purple, 4GB RAM, 64GB Storage)| Glow Sarkle
+                    </div>
+                    <div class="colour-optn3">
+                        <div class="optn3-1">
+                            
+                        </div>
+                        <div class="optn3-2">
+                
+                        </div>
+                    </div>
+                    <div class="saveing3">
+                        Save $1,000.00 with coupon
+                    </div>
+                </div>
+                
+                <div class="prod4">
+                    <div class="thumbnail4">
+                        <img class="thumbnail-4-img" src="amazon-images/thumbnail4.png">
+                    </div>
+                    <div class="offer4">
+                        <p1 style="background-color: red;">
+                            15% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc4">
+                        realme Narzo 70 Turbo 5G (Turbo Yellow,6GB RAM, 128Gb)
+                    </div>
+                    <div class="colour-optn">
+                        <div class="optn4-1">
+                            
+                        </div>
+                        <div class="optn4-2">
+                
+                        </div>
+                    </div>
+                    <div class="saveing4">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod5">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-5-img" src="amazon-images/thumbnail5.png">
+                    </div>
+                    <div class="offer5">
+                        <p1 style="background-color: red;">
+                            7% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc5">
+                        Oneplus Nord CE 4 (Dark chrome 8GB RAM, 256GB STORAGE)
+                    </div>
+                    <div class="colour-optn5">
+                        <div class="optn5-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 108);">
+                            
+                        </div>
+                        <div class="optn5-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(122, 244, 251);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing5">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod6">
+                    <div class="thumbnail6">
+                        <img class="thumbnail-6-img" src="amazon-images/thumbnail6.png">
+                    </div>
+                    <div class="offer6">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc6">
+                        realme NARZO N61 5G (Deep Green 6GB RAM+128GB Storage)
+                    </div>
+                    <div class="colour-optn6">
+                        <div class="optn6-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 108);">
+                            
+                        </div>
+                        <div class="optn6-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(255, 198, 198);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing6">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod7">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-7-img" src="amazon-images/thumbnail7.png">
+                    </div>
+                    <div class="offer7">
+                        <p1 style="background-color: red;">
+                            12% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc7">
+                        Redmi Note 14 5G (phantom purple, 8GB RAM, 256GB Storage)
+                    </div>
+                    <div class="colour-optn7">
+                        <div class="optn7-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(158, 158, 254);">
+                            
+                        </div>
+                        <div class="optn7-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 0);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing7">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod8">
+                    <div class="thumbnail1">
+                        <img class="thumbnail-8-img" src="amazon-images/thumbnail1.png">
+                    </div>
+                    <div class="offer8">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc8">
+                        OnePlus Nord 4 5GB (oasis green, 8GB RAM, 256GB Storage)
+                    </div>
+                    <div class="colour-optn8">
+                        <div class="optn8-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 108);">
+                            
+                        </div>
+                        <div class="optn8-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(0, 0, 0);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing8">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod9">
+                    <div class="thumbnail9">
+                        <img class="thumbnail-9-img" src="amazon-images/thumbnail9.png">
+                    </div>
+                    <div class="offer9">
+                        <p1 style="background-color: red;">
+                            26% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc9">
+                        iQOO Z9x %G (Tornado Green, 6GB RAM 128GB Storage) | Snapdrago gen1
+                    </div>
+                    <div class="colour-optn9">
+                        <div class="optn9-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(59, 211, 84);">
+                            
+                        </div>
+                        <div class="optn9-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(255, 255, 255);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing9">
+                        .
+                    </div>
+                </div>
+                
+                <div class="prod10">
+                    <div class="thumbnail10">
+                        <img class="thumbnail-10-img" src="amazon-images/thumbnail10.png">
+                    </div>
+                    <div class="offer10">
+                        <p1 style="background-color: red;">
+                            17% offer1
+                        </p1>
+                        <p2 style="color: red;
+                                    margin-left: 10px;">
+                            Limited time deal
+                        </p2>
+                    </div>
+                    <div class="prod-disc10">
+                        iQOO Z95 Pro 5G(Luxe Marble 12GB RAM, 256GB Storage)
+                    </div>
+                    <div class="colour-optn10">
+                        <div class="optn10-1" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(197, 197, 197);">
+                            
+                        </div>
+                        <div class="optn10-2" style="height: 30px;
+                                                    width: 30px;
+                                                    display: inline-block;
+                                                    border-radius: 15px;
+                                                    background-color: rgb(244, 99, 99);">
+                
+                        </div>
+                    </div>
+                    <div class="saveing10">
+                        .
+                    </div>
+                </div>
+            
+            </div>
+        
+        </div>
+        
+        <div class="last-div-end">
+            <div class="last-a">
+                Back to top
+            </div>
+            <div class="last-b">
+                <div class="b-1">
+                    <h3>
+                        Get to Know Us
+                    </h3>
+                    <div>
+                        <p1>
+                            About Amazon
+                        </p1>
+                    </div>
+                    <div>
+                        <h3>
+                            Careers
+                        </h3>
+                    </div>
+                    <div>
+                        <p1>
+                            Press Releases
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Amazon Science
+                        </p1>
+                    </div>
+                </div>
+        
+                <div class="b-2">
+                    <h3>
+                        Connect with Us
+                    </h3>
+                    <div>
+                        <p1>
+                            Facebook
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Twitter
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Instagram
+                        </p1>
+                    </div>
+                </div>
+        
+                <div class="b-3">
+                    <h3>
+                        Make Money with Us
+                    </h3>
+                    <div>
+                        <p1>
+                            Sell on Amazon
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Sell under Amazon Accelerator
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Protect and Build Your Brand
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Aamzon Global Selling
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Supply to Amazon
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Become a Affiliate
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Fuilfilment By Amazon
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Advertise Your Products
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Amazon Pay on Merchants
+                        </p1>
+                    </div>
+                </div>
+        
+                <div class="b-4">
+                    <h3>
+                        Let us Help You
+                    </h3>
+                    <div>
+                        <p1>
+                            Your Account
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Rreturn Centres
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            REcalls and Product Safety Alerts
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            100% Purchase Protection
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Amazon App Download
+                        </p1>
+                    </div>
+                    <div>
+                        <p1>
+                            Help
+                        </p1>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="last-c">
+                <img src="amazonlogo.png">
+                <button>
+                    @ English
+                </button>
+                <button>
+                    India
+                </button>
+            </div>
+        
+            <div class="last-d">
+                <div class="div-d-1">
+                    <h3>
+                        AbeBooks
+                    </h3>
+                    <p1>
+                        Books, art & collections
+                    </p1>
+                    <h3>
+                        Shopbop
+                    </h3>
+                    <p1>
+                        Designer Fashiom Brands
+                    </p1>
+                </div>
+        
+                <div class="div-d-2">
+                    <h3>
+                        Amazon Web Services
+                    </h3>
+                    <p1>
+                        Scable Cloud Computing Services
+                    </p1>
+                    <h3>
+                        Amazon Buisness
+                    </h3>
+                    <p1>
+                        Everything Foe Your Buisness
+                    </p1>
+                </div>
+        
+                <div class="div-d-3">
+                    <h3>
+                        Audible
+                    </h3>
+                    <p1>
+                        Download Audio Books
+                    </p1>
+                    <h3>
+                        Prime Now 
+                    </h3>
+                    <p1>
+                        2-Hour Delivery on Everyting Items
+                    </p1>
+                </div>
+        
+                <div class="div-d-4">
+                    <h3>
+                        IMBD
+                    </h3>
+                    <p1>
+                        Movies, TV & Celebrities
+                    </p1>
+                    <h3>
+                        Amazon Prime Music
+                    </h3>
+                    <p1>
+                        100 Million songs, ad-free Over 15 million podcast episodes
+                    </p1>
+                </div>
+        
+            </div>
+        </div>
+    </body>
+</html>
