@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Notifications</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#667eea,#764ba2);
+    min-height:100vh;
+    padding:40px 20px;
+}
+
+.container{
+    max-width:1200px;
+    margin:auto;
+}
+
+.header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:30px;
+    color:white;
+}
+
+.search-box{
+    background:white;
+    padding:8px 15px;
+    border-radius:30px;
+    display:flex;
+    align-items:center;
+    width:280px;
+}
+
+.search-box input{
+    border:none;
+    outline:none;
+    width:100%;
+    font-size:14px;
+}
+
+.filters{
+    margin-bottom:25px;
+}
+
+.filter-btn{
+    padding:8px 16px;
+    border-radius:20px;
+    border:none;
+    margin-right:10px;
+    cursor:pointer;
+    background:rgba(255,255,255,0.3);
+    color:white;
+    transition:0.3s;
+}
+
+.filter-btn.active{
+    background:white;
+    color:#333;
+    font-weight:600;
+}
+
+.filter-btn:hover{
+    background:white;
+    color:#333;
+}
+
+.job-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+    gap:25px;
+}
+
+.job-card{
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(15px);
+    border-radius:15px;
+    padding:20px;
+    color:white;
+    transition:0.4s;
+}
+
+.job-card:hover{
+    transform:translateY(-8px);
+    background:rgba(255,255,255,0.25);
+}
+
+.badge{
+    background:#00ffae;
+    color:#333;
+    padding:5px 10px;
+    border-radius:15px;
+    font-size:12px;
+    font-weight:600;
+    display:inline-block;
+    margin-bottom:10px;
+}
+
+.apply-btn{
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    cursor:pointer;
+    background:white;
+    color:#333;
+    font-weight:500;
+    margin-top:10px;
+}
+
+.apply-btn:hover{
+    background:#00ffae;
+}
+
+@media(max-width:600px){
+    .header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+    <div class="header">
+        <h1>🔥 Latest Job Notifications</h1>
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Search jobs...">
+        </div>
+    </div>
+
+    <div class="filters">
+        <button class="filter-btn active" data-type="all">All</button>
+        <button class="filter-btn" data-type="Full-Time">Full-Time</button>
+        <button class="filter-btn" data-type="Internship">Internship</button>
+        <button class="filter-btn" data-type="Remote">Remote</button>
+    </div>
+
+    <div class="job-grid" id="jobGrid">
+
+        <div class="job-card" data-type="Full-Time">
+            <div class="badge">New</div>
+            <h3>Frontend Developer</h3>
+            <p>TechNova Pvt Ltd</p>
+            <p>📍 Delhi NCR</p>
+            <p>💰 ₹4-6 LPA</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-type="Internship">
+            <div class="badge">Urgent</div>
+            <h3>HR Executive</h3>
+            <p>RozgarSathi</p>
+            <p>📍 Noida</p>
+            <p>💰 ₹10,000 / Month</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-type="Remote">
+            <div class="badge">Remote</div>
+            <h3>Digital Marketing Manager</h3>
+            <p>Growth Media Agency</p>
+            <p>🌍 Remote</p>
+            <p>💰 ₹5-8 LPA</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-type="Full-Time">
+            <div class="badge">New</div>
+            <h3>Frontend Developer</h3>
+            <p>TechNova Pvt Ltd</p>
+            <p>📍 Delhi NCR</p>
+            <p>💰 ₹4-6 LPA</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-type="Internship">
+            <div class="badge">Urgent</div>
+            <h3>HR Executive</h3>
+            <p>RozgarSathi</p>
+            <p>📍 Noida</p>
+            <p>💰 ₹10,000 / Month</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+        <div class="job-card" data-type="Remote">
+            <div class="badge">Remote</div>
+            <h3>Digital Marketing Manager</h3>
+            <p>Growth Media Agency</p>
+            <p>🌍 Remote</p>
+            <p>💰 ₹5-8 LPA</p>
+            <button class="apply-btn">Apply Now</button>
+        </div>
+
+    </div>
+
+</div>
+
+<script>
+
+const searchInput = document.getElementById("searchInput");
+const filterButtons = document.querySelectorAll(".filter-btn");
+const jobCards = document.querySelectorAll(".job-card");
+
+let currentFilter = "all";
+
+/* SEARCH FUNCTION */
+searchInput.addEventListener("keyup", function() {
+    filterJobs();
+});
+
+/* FILTER BUTTON FUNCTION */
+filterButtons.forEach(button => {
+    button.addEventListener("click", function() {
+
+        filterButtons.forEach(btn => btn.classList.remove("active"));
+        this.classList.add("active");
+
+        currentFilter = this.getAttribute("data-type");
+        filterJobs();
+    });
+});
+
+function filterJobs() {
+    const searchText = searchInput.value.toLowerCase();
+
+    jobCards.forEach(card => {
+
+        const title = card.querySelector("h3").innerText.toLowerCase();
+        const company = card.querySelector("p").innerText.toLowerCase();
+        const type = card.getAttribute("data-type");
+
+        const matchesSearch = title.includes(searchText) || company.includes(searchText);
+        const matchesFilter = currentFilter === "all" || currentFilter === type;
+
+        if (matchesSearch && matchesFilter) {
+            card.style.display = "block";
+        } else {
+            card.style.display = "none";
+        }
+
+    });
+}
+
+</script>
+
+</body>
+</html>

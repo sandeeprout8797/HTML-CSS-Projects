@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Advanced Data Table</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f4f6f9;
+      padding: 30px;
+    }
+
+    input {
+      padding: 8px;
+      margin-bottom: 15px;
+      width: 250px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: white;
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background: #007bff;
+      color: white;
+      cursor: pointer;
+    }
+
+    td[contenteditable="true"] {
+      background: #fff8dc;
+    }
+
+    button {
+      padding: 5px 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .delete-btn {
+      background: red;
+      color: white;
+    }
+
+    .clear-btn {
+      margin-top: 15px;
+      padding: 10px 20px;
+      background: black;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<h2>Submitted Form Data</h2>
+
+<input type="text" id="searchBox" placeholder="Search by name..." onkeyup="loadTable()">
+
+<table id="dataTable">
+  <thead>
+    <tr>
+      <th onclick="sortData('name')">Name</th>
+      <th onclick="sortData('email')">Email</th>
+      <th onclick="sortData('phone')">Phone</th>
+      <th onclick="sortData('message')">Message</th>
+      <th>Date</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<button class="clear-btn" onclick="clearData()">Clear All Data</button>
+
+<script>
+let sortDirection = true;
+
+function loadTable() {
+  const tableBody = document.querySelector("#dataTable tbody");
+  tableBody.innerHTML = "";
+
+  let data = JSON.parse(localStorage.getItem("formDataList")) || [];
+  const searchValue = document.getElementById("searchBox").value.toLowerCase();
+
+  data = data.filter(item =>
+    item.name.toLowerCase().includes(searchValue)
+  );
+
+  data.forEach((item) => {
+    const row = document.createElement("tr");
+
+    row.innerHTML = `
+      <td contenteditable="true" oninput="updateData(${item.id}, 'name', this.innerText)">${item.name}</td>
+      <td contenteditable="true" oninput="updateData(${item.id}, 'email', this.innerText)">${item.email}</td>
+      <td contenteditable="true" oninput="updateData(${item.id}, 'phone', this.innerText)">${item.phone}</td>
+      <td contenteditable="true" oninput="updateData(${item.id}, 'message', this.innerText)">${item.message}</td>
+      <td>${item.date}</td>
+      <td><button class="delete-btn" onclick="deleteRow(${item.id})">Delete</button></td>
+    `;
+
+    tableBody.appendChild(row);
+  });
+}
+
+function updateData(id, field, value) {
+  let data = JSON.parse(localStorage.getItem("formDataList")) || [];
+
+  data = data.map(item => {
+    if (item.id === id) {
+      item[field] = value;
+    }
+    return item;
+  });
+
+  localStorage.setItem("formDataList", JSON.stringify(data));
+}
+
+function deleteRow(id) {
+  let data = JSON.parse(localStorage.getItem("formDataList")) || [];
+  data = data.filter(item => item.id !== id);
+  localStorage.setItem("formDataList", JSON.stringify(data));
+  loadTable();
+}
+
+function clearData() {
+  localStorage.removeItem("formDataList");
+  loadTable();
+}
+
+function sortData(field) {
+  let data = JSON.parse(localStorage.getItem("formDataList")) || [];
+
+  data.sort((a, b) => {
+    if (sortDirection) {
+      return a[field].localeCompare(b[field]);
+    } else {
+      return b[field].localeCompare(a[field]);
+    }
+  });
+
+  sortDirection = !sortDirection;
+
+  localStorage.setItem("formDataList", JSON.stringify(data));
+  loadTable();
+}
+
+window.onload = loadTable;
+</script>
+
+</body>
+</html>

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Job Input Form</title>
+    <style>
+        body {
+            font-family: Arial;
+            background: #f2f2f2;
+            padding: 40px;
+        }
+        .container {
+            width: 400px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+        }
+        input, textarea, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            background: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Post a Job</h2>
+
+    <form id="jobForm">
+        <input type="text" id="title" placeholder="Job Title" required>
+        <input type="text" id="company" placeholder="Company Name" required>
+        <input type="text" id="location" placeholder="Location" required>
+
+        <select id="type" required>
+            <option value="">Select Job Type</option>
+            <option>Full-Time</option>
+            <option>Part-Time</option>
+            <option>Internship</option>
+        </select>
+
+        <input type="text" id="salary" placeholder="Salary">
+        <textarea id="description" placeholder="Job Description" rows="4"></textarea>
+
+        <button type="submit">Submit Job</button>
+    </form>
+</div>
+
+<script>
+document.getElementById("jobForm").addEventListener("submit", function(e){
+    e.preventDefault();
+
+    const jobData = {
+        title: document.getElementById("title").value,
+        company: document.getElementById("company").value,
+        location: document.getElementById("location").value,
+        type: document.getElementById("type").value,
+        salary: document.getElementById("salary").value,
+        description: document.getElementById("description").value
+    };
+
+    localStorage.setItem("jobDetails", JSON.stringify(jobData));
+
+    window.location.href = "testFive.html";
+});
+</script>
+
+</body>
+</html>

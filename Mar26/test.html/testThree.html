@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.parent {
+    width: 300px;
+    border: 2px solid black;
+    overflow: hidden;
+    position: relative;
+}
+
+.wrapper {
+    display: flex;
+    width: 300%; /* 3 pages */
+    transition: 0.5s;
+}
+
+.page {
+    width: 300px;
+}
+
+.child {
+    height: 40px;
+    border-bottom: 1px solid gray;
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+}
+
+/* Hide radio buttons */
+input {
+    display: none;
+}
+
+/* Slide logic */
+#page1:checked ~ .parent .wrapper {
+    transform: translateX(0%);
+}
+
+#page2:checked ~ .parent .wrapper {
+    transform: translateX(-33.33%);
+}
+
+#page3:checked ~ .parent .wrapper {
+    transform: translateX(-66.66%);
+}
+
+.buttons {
+    margin-top: 10px;
+}
+</style>
+</head>
+<body>
+
+<!-- Radio controls -->
+<input type="radio" name="slider" id="page1" checked>
+<input type="radio" name="slider" id="page2">
+<input type="radio" name="slider" id="page3">
+
+<div class="parent">
+    <div class="wrapper">
+        <div class="page">
+            <!-- 1–10 -->
+            <div class="child">Div 1</div>
+            <div class="child">Div 2</div>
+            <div class="child">Div 3</div>
+            <div class="child">Div 4</div>
+            <div class="child">Div 5</div>
+            <div class="child">Div 6</div>
+            <div class="child">Div 7</div>
+            <div class="child">Div 8</div>
+            <div class="child">Div 9</div>
+            <div class="child">Div 10</div>
+        </div>
+
+        <div class="page">
+            <!-- 11–20 -->
+            <div class="child">Div 11</div>
+            <div class="child">Div 12</div>
+            <div class="child">Div 13</div>
+            <div class="child">Div 14</div>
+            <div class="child">Div 15</div>
+            <div class="child">Div 16</div>
+            <div class="child">Div 17</div>
+            <div class="child">Div 18</div>
+            <div class="child">Div 19</div>
+            <div class="child">Div 20</div>
+        </div>
+
+        <div class="page">
+            <!-- 21–25 -->
+            <div class="child">Div 21</div>
+            <div class="child">Div 22</div>
+            <div class="child">Div 23</div>
+            <div class="child">Div 24</div>
+            <div class="child">Div 25</div>
+        </div>
+    </div>
+</div>
+
+<div class="buttons">
+    <label for="page1">1</label>
+    <label for="page2">2</label>
+    <label for="page3">3</label>
+</div>
+
+</body>
+</html>
