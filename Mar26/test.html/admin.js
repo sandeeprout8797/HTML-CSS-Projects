@@ -2,6 +2,7 @@ let jobParentArray = JSON.parse(localStorage.getItem("jobs")) || [[]]
 
 let currentPage = 0
 let display = document.querySelector(".jobDisplay")
+let displayTwo = document.querySelector(".displaydiv")
 
 class JobCard{
 
@@ -13,7 +14,9 @@ class JobCard{
 }
 
 function saveJobs(){
+
     localStorage.setItem("jobs",JSON.stringify(jobParentArray))
+
 }
 
 function addJob(event){
@@ -60,6 +63,7 @@ function renderJobs(){
         Job ${index+1}: <b>${job.title}</b> - ${job.location}
         </div>
         `
+
 
     }
 
@@ -108,21 +112,24 @@ function searchJobs(){
     display.innerHTML=""
 
     if(query===""){
-        renderJobs()
-        return
+    renderJobs()
+    return
     }
 
     jobParentArray.forEach((page,pageIndex)=>{
 
-        page.forEach((job,index)=>{
+    page.forEach((job,index)=>{
 
-            if(job.title.toLowerCase().includes(query) ||job.location.toLowerCase().includes(query)) {
+    if(
+    job.title.toLowerCase().includes(query) ||
+    job.location.toLowerCase().includes(query)
+    ){
 
-                display.innerHTML+=`
-                <div class="jobItem">
-                Page ${pageIndex+1} - Job ${index+1}: <b>${job.title}</b> - ${job.location}
-                </div>
-                `
+    display.innerHTML+=`
+    <div class="jobItem">
+    Page ${pageIndex+1} - Job ${index+1}: <b>${job.title}</b> - ${job.location}
+    </div>
+    `
 
     }
 
@@ -137,72 +144,76 @@ function searchJobs(){
 
 function editJob(){
 
-    let page=document.getElementById("editPage").value
-    let jobIndex=document.getElementById("editJob").value
+let page=document.getElementById("editPage").value
+let jobIndex=document.getElementById("editJob").value
 
-    let newTitle=document.getElementById("editTitle").value
-    let newLocation=document.getElementById("editLocation").value
+let newTitle=document.getElementById("editTitle").value
+let newLocation=document.getElementById("editLocation").value
 
-    page=parseInt(page)-1
-    jobIndex=parseInt(jobIndex)-1
+page=parseInt(page)-1
+jobIndex=parseInt(jobIndex)-1
 
-    if(jobParentArray[page] && jobParentArray[page][jobIndex]){
+if(jobParentArray[page] && jobParentArray[page][jobIndex]){
 
-        jobParentArray[page][jobIndex].title=newTitle
-        jobParentArray[page][jobIndex].location=newLocation
+jobParentArray[page][jobIndex].title=newTitle
+jobParentArray[page][jobIndex].location=newLocation
 
-        saveJobs()
-        alert("Job Updated")
-        renderJobs()
+saveJobs()
 
-    } else{
-        alert("Invalid Page or Job Number")
-    }
+alert("Job Updated")
+
+renderJobs()
+
+}else{
+
+alert("Invalid Page or Job Number")
+
+}
 
 }
 
 
 function deleteJob(){
 
-    let page=document.getElementById("editPage").value
-    let jobIndex=document.getElementById("editJob").value
+let page=document.getElementById("editPage").value
+let jobIndex=document.getElementById("editJob").value
 
-    page=parseInt(page)-1
-    jobIndex=parseInt(jobIndex)-1
+page=parseInt(page)-1
+jobIndex=parseInt(jobIndex)-1
 
-    if(jobParentArray[page] && jobParentArray[page][jobIndex]){
+if(jobParentArray[page] && jobParentArray[page][jobIndex]){
 
-        jobParentArray[page].splice(jobIndex,1)
+jobParentArray[page].splice(jobIndex,1)
 
-        saveJobs()
+saveJobs()
 
-        alert("Job Deleted")
+alert("Job Deleted")
 
-        renderJobs()
+renderJobs()
 
-    }else{
+}else{
 
-        alert("Invalid Page or Job Number")
+alert("Invalid Page or Job Number")
 
-    }
+}
 
 }
 
 function deleteAllJobs(){
 
-    if(confirm("Are you sure you want to delete ALL jobs?")){
+if(confirm("Are you sure you want to delete ALL jobs?")){
 
-    jobParentArray=[[]]
+jobParentArray=[[]]
 
-    localStorage.clear()
+localStorage.clear()
 
-    currentPage=0
+currentPage=0
 
-    renderJobs()
+renderJobs()
 
-    alert("All jobs deleted")
+alert("All jobs deleted")
 
-    }
+}
 
 }
 
