@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<title>Job Management System</title>
+
+<style>
+
+body{
+font-family:Arial;
+padding:30px;
+background:#f4f6f8;
+}
+
+h2{
+margin-bottom:5px;
+}
+
+input{
+padding:7px;
+margin-bottom:10px;
+width:220px;
+}
+
+button{
+padding:7px 12px;
+margin:5px;
+cursor:pointer;
+}
+
+.controls{
+margin-top:15px;
+margin-bottom:20px;
+}
+
+#searchBox{
+width:250px;
+}
+
+.jobGrid{
+display:grid;
+grid-template-columns:repeat(auto-fill,minmax(260px,1fr));
+gap:15px;
+}
+
+.jobCard{
+background:white;
+padding:15px;
+border-radius:8px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+.jobCard h3{
+margin:0;
+font-size:18px;
+}
+
+.jobCard p{
+margin:6px 0;
+color:#555;
+}
+
+.actions{
+margin-top:10px;
+}
+
+.pageInfo{
+margin-top:15px;
+font-weight:bold;
+}
+
+.editSection{
+margin-top:40px;
+background:white;
+padding:20px;
+border-radius:8px;
+width:350px;
+box-shadow:0 2px 6px rgba(0,0,0,0.15);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<h2>Job Notification System</h2>
+
+<form onsubmit="addJob(event)">
+
+<p>Job Title</p>
+<input id="title" required>
+
+<p>Job Location</p>
+<input id="location" required>
+
+<br>
+<button type="submit">Add Job</button>
+
+</form>
+
+<div class="controls">
+
+<button onclick="prevPage()">Previous</button>
+<button onclick="nextPage()">Next</button>
+
+<input id="searchBox" placeholder="Search jobs..." onkeyup="searchJobs()">
+
+</div>
+
+<div class="pageInfo" id="pageInfo"></div>
+
+<div class="jobGrid" id="jobGrid"></div>
+
+
+<div class="editSection">
+
+<h3>Edit Job</h3>
+
+<p>Job ID</p>
+<input id="editId">
+
+<p>New Title</p>
+<input id="editTitle">
+
+<p>New Location</p>
+<input id="editLocation">
+
+<br>
+<button onclick="updateJob()">Update Job</button>
+
+</div>
+
+
+<script>
+
+let jobs=[]
+let filteredJobs=[]
+let currentPage=1
+const pageSize=10
+
+const grid=document.getElementById("jobGrid")
+
+function saveJobs(){
+
+localStorage.setItem("jobs",JSON.stringify(jobs))
+
+}
+
+function loadJobs(){
+
+let stored=localStorage.getItem("jobs")
+
+if(stored){
+
+jobs=JSON.parse(stored)
+
+}else{
+
+jobs=[]
+
+}
+
+filteredJobs=[...jobs]
+
+renderJobs()
+
+}
+
+class Job{
+
+constructor(title,location){
+
+this.id=Date.now()
+this.title=title
+this.location=location
+
+}
+
+}
+
+function addJob(e){
+
+e.preventDefault()
+
+const title=document.getElementById("title").value
+const location=document.getElementById("location").value
+
+const job=new Job(title,location)
+
+jobs.unshift(job)
+
+saveJobs()
+
+document.getElementById("title").value=""
+document.getElementById("location").value=""
+
+searchJobs()
+
+}
+
+function renderJobs(){
+
+grid.innerHTML=""
+
+const start=(currentPage-1)*pageSize
+const end=start+pageSize
+
+const pageData=filteredJobs.slice(start,end)
+
+pageData.forEach(job=>{
+
+grid.innerHTML+=`
+
+<div class="jobCard">
+
+<h3>${job.title}</h3>
+<p>${job.location}</p>
+
+<div class="actions">
+
+<button onclick="deleteJob(${job.id})">Delete</button>
+<button onclick="loadEdit(${job.id})">Edit</button>
+
+</div>
+
+<p>ID: ${job.id}</p>
+
+</div>
+
+`
+
+})
+
+let startNum=start+1
+let endNum=Math.min(end,filteredJobs.length)
+
+document.getElementById("pageInfo").innerText=
+`Showing ${startNum}-${endNum} of ${filteredJobs.length} jobs`
+
+}
+
+function nextPage(){
+
+if(currentPage*pageSize < filteredJobs.length){
+
+currentPage++
+renderJobs()
+
+}
+
+}
+
+function prevPage(){
+
+if(currentPage>1){
+
+currentPage--
+renderJobs()
+
+}
+
+}
+
+function deleteJob(id){
+
+jobs=jobs.filter(job=>job.id!==id)
+
+saveJobs()
+
+searchJobs()
+
+}
+
+function loadEdit(id){
+
+const job=jobs.find(j=>j.id===id)
+
+document.getElementById("editId").value=job.id
+document.getElementById("editTitle").value=job.title
+document.getElementById("editLocation").value=job.location
+
+}
+
+function updateJob(){
+
+const id=parseInt(document.getElementById("editId").value)
+const title=document.getElementById("editTitle").value
+const location=document.getElementById("editLocation").value
+
+const job=jobs.find(j=>j.id===id)
+
+if(job){
+
+job.title=title
+job.location=location
+
+saveJobs()
+
+searchJobs()
+
+alert("Job Updated")
+
+}
+
+}
+
+function searchJobs(){
+
+const query=document.getElementById("searchBox").value.toLowerCase()
+
+filteredJobs=jobs.filter(job=>
+
+job.title.toLowerCase().includes(query) ||
+job.location.toLowerCase().includes(query)
+
+)
+
+currentPage=1
+
+renderJobs()
+
+}
+
+loadJobs()
+
+</script>
+
+</body>
+</html>

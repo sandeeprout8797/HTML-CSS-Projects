@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Job Notifications</title>
+
+<style>
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f4f6f9;
+margin:0;
+padding:40px;
+}
+
+h1{
+text-align:center;
+margin-bottom:40px;
+}
+
+.jobsContainer{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+max-width:1000px;
+margin:auto;
+}
+
+.jobCard{
+background:white;
+border-radius:10px;
+padding:20px;
+box-shadow:0 2px 8px rgba(0,0,0,0.1);
+}
+
+.jobCard h3{
+margin:0 0 10px 0;
+}
+
+.jobCard p{
+margin:4px 0;
+color:#555;
+}
+
+.pagination{
+text-align:center;
+margin-top:30px;
+}
+
+.pagination button{
+padding:10px 18px;
+margin:5px;
+border:none;
+background:#007bff;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.pagination button:hover{
+background:#0056b3;
+}
+
+.pageNumber{
+font-weight:bold;
+margin:0 10px;
+}
+
+</style>
+</head>
+
+<body>
+
+<h1>Latest Job Notifications</h1>
+
+<div class="jobsContainer" id="jobsContainer"></div>
+
+<div class="pagination">
+    <button onclick="prevPage()">Prev</button>
+    <span class="pageNumber" id="pageNumber"></span>
+    <button onclick="nextPage()">Next</button>
+</div>
+
+<script>
+
+/* JOB DATABASE */
+
+const jobs = [
+
+{title:"Frontend Developer",company:"RozgarSathi",location:"Delhi",salary:"₹5 LPA",type:"Full Time"},
+{title:"HR Recruiter",company:"RozgarSathi",location:"Noida",salary:"₹3.5 LPA",type:"Full Time"},
+{title:"Content Writer",company:"RozgarSathi",location:"Remote",salary:"₹25k/month",type:"Internship"},
+{title:"Backend Developer",company:"TechNova",location:"Bangalore",salary:"₹8 LPA",type:"Full Time"},
+{title:"UI UX Designer",company:"Designify",location:"Mumbai",salary:"₹6 LPA",type:"Full Time"},
+{title:"SEO Executive",company:"Digital Boost",location:"Delhi",salary:"₹4 LPA",type:"Full Time"},
+{title:"Marketing Manager",company:"GrowthHub",location:"Gurgaon",salary:"₹9 LPA",type:"Full Time"},
+{title:"Data Analyst",company:"InsightTech",location:"Hyderabad",salary:"₹7 LPA",type:"Full Time"},
+{title:"React Developer",company:"WebStack",location:"Remote",salary:"₹6.5 LPA",type:"Full Time"},
+{title:"Python Developer",company:"AI Labs",location:"Pune",salary:"₹8.5 LPA",type:"Full Time"},
+{title:"HR Executive",company:"RozgarSathi",location:"Delhi",salary:"₹3 LPA",type:"Full Time"},
+{title:"Graphic Designer",company:"Creative Studio",location:"Remote",salary:"₹4.2 LPA",type:"Full Time"},
+{title:"Sales Executive",company:"MarketPro",location:"Noida",salary:"₹3.8 LPA",type:"Full Time"},
+{title:"WordPress Developer",company:"SiteCraft",location:"Remote",salary:"₹5 LPA",type:"Full Time"},
+{title:"Content Strategist",company:"MediaHive",location:"Delhi",salary:"₹6 LPA",type:"Full Time"},
+
+{title:"Data Analyst",company:"InsightTech",location:"Hyderabad",salary:"₹7 LPA",type:"Full Time"},
+{title:"React Developer",company:"WebStack",location:"Remote",salary:"₹6.5 LPA",type:"Full Time"},
+{title:"Python Developer",company:"AI Labs",location:"Pune",salary:"₹8.5 LPA",type:"Full Time"},
+{title:"HR Executive",company:"RozgarSathi",location:"Delhi",salary:"₹3 LPA",type:"Full Time"},
+{title:"Graphic Designer",company:"Creative Studio",location:"Remote",salary:"₹4.2 LPA",type:"Full Time"},
+{title:"Sales Executive",company:"MarketPro",location:"Noida",salary:"₹3.8 LPA",type:"Full Time"},
+{title:"WordPress Developer",company:"SiteCraft",location:"Remote",salary:"₹5 LPA",type:"Full Time"},
+{title:"Content Strategist",company:"MediaHive",location:"Delhi",salary:"₹6 LPA",type:"Full Time"}
+
+];
+
+
+/* PAGINATION SETTINGS */
+
+const jobsPerPage = 10;
+let currentPage = 1;
+
+
+/* DISPLAY JOBS */
+
+function displayJobs(){
+
+    const container = document.getElementById("jobsContainer");
+    container.innerHTML="";
+
+    const start = (currentPage-1)*jobsPerPage;
+    const end = start + jobsPerPage;
+
+    const pageJobs = jobs.slice(start,end);
+
+    pageJobs.forEach(job =>{
+
+        if(!job.title || job.title==="") return;
+
+        const card=document.createElement("div");
+        card.className="jobCard";
+
+        card.innerHTML=`
+        <h3>${job.title}</h3>
+        <p><strong>Company:</strong> ${job.company}</p>
+        <p><strong>Location:</strong> ${job.location}</p>
+        <p><strong>Salary:</strong> ${job.salary}</p>
+        <p><strong>Type:</strong> ${job.type}</p>
+        `;
+
+        container.appendChild(card);
+
+    });
+
+    document.getElementById("pageNumber").innerText =
+    "Page "+currentPage+" / "+Math.ceil(jobs.length/jobsPerPage);
+
+}
+
+
+/* NEXT PAGE */
+
+function nextPage(){
+
+if(currentPage*jobsPerPage < jobs.length){
+currentPage++;
+displayJobs();
+}
+
+}
+
+
+/* PREVIOUS PAGE */
+
+function prevPage(){
+
+if(currentPage>1){
+currentPage--;
+displayJobs();
+}
+
+}
+
+
+/* INITIAL LOAD */
+
+displayJobs();
+
+</script>
+
+</body>
+</html>

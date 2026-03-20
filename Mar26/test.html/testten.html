@@ -1,0 +1,295 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Advanced Job Notification System</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f6f9;
+padding:40px;
+}
+
+.container{
+max-width:1000px;
+margin:auto;
+}
+
+form{
+background:white;
+padding:20px;
+border-radius:8px;
+margin-bottom:20px;
+box-shadow:0 2px 5px rgba(0,0,0,0.1);
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+background:#0077ff;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.searchBox{
+margin-bottom:20px;
+}
+
+.jobs{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.jobCard{
+background:white;
+padding:15px;
+border-radius:6px;
+box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+.pageInfo{
+text-align:center;
+margin-top:10px;
+font-weight:bold;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Job Notification System</h2>
+
+<form id="jobForm">
+
+<input type="text" id="title" placeholder="Job Title" required>
+
+<input type="text" id="location" placeholder="Job Location" required>
+
+<input type="text" id="salary" placeholder="Salary" required>
+
+<select id="type" required>
+<option value="">Job Type</option>
+<option>Full Time</option>
+<option>Part Time</option>
+<option>Internship</option>
+<option>Remote</option>
+</select>
+
+<button type="submit">Add Job</button>
+
+</form>
+
+<div class="searchBox">
+<input type="text" id="searchInput" placeholder="Search jobs (title/location/type)">
+</div>
+
+<div class="jobs" id="jobContainer"></div>
+
+<div class="nav">
+<button onclick="prevPage()">Previous</button>
+<button onclick="nextPage()">Next</button>
+</div>
+
+<div class="pageInfo" id="pageInfo"></div>
+
+</div>
+
+
+<script>
+
+class Job{
+
+constructor(title,location,salary,type){
+
+this.title = title
+this.location = location
+this.salary = salary
+this.type = type
+
+}
+
+}
+
+let jobArrays=[[]]
+let currentPage=0
+let filteredArrays=null
+
+
+
+document.getElementById("jobForm").addEventListener("submit",function(e){
+
+e.preventDefault()
+
+let title=document.getElementById("title").value
+let location=document.getElementById("location").value
+let salary=document.getElementById("salary").value
+let type=document.getElementById("type").value
+
+let newJob=new Job(title,location,salary,type)
+
+
+if(jobArrays[0].length<10){
+
+    jobArrays[0].push(newJob)
+
+    }else{
+
+    jobArrays.unshift([newJob])
+
+    currentPage=0
+
+    }
+
+    displayJobs()
+
+    this.reset()
+
+})
+
+
+
+document.getElementById("searchInput").addEventListener("input",function(){
+
+    let value=this.value.toLowerCase()
+
+    if(value===""){
+
+    filteredArrays=null
+    displayJobs()
+    return
+
+}
+
+let flat=jobArrays.flat()
+
+let results=flat.filter(job=>{
+
+return job.title.toLowerCase().includes(value) ||
+job.location.toLowerCase().includes(value) ||
+job.type.toLowerCase().includes(value)
+
+})
+
+filteredArrays=[]
+
+for(let i=0;i<results.length;i+=10){
+
+filteredArrays.push(results.slice(i,i+10))
+
+}
+
+currentPage=0
+
+displayJobs()
+
+})
+
+
+
+function getActiveArrays(){
+
+return filteredArrays?filteredArrays:jobArrays
+
+}
+
+
+
+function displayJobs(){
+
+let container=document.getElementById("jobContainer")
+
+container.innerHTML=""
+
+let arrays=getActiveArrays()
+
+if(arrays.length===0){
+
+container.innerHTML="<p>No Jobs Found</p>"
+return
+
+}
+
+arrays[currentPage].forEach(job=>{
+
+let card=document.createElement("div")
+
+card.className="jobCard"
+
+card.innerHTML=`
+
+<h3>${job.title}</h3>
+<p><b>Location:</b> ${job.location}</p>
+<p><b>Salary:</b> ${job.salary}</p>
+<p><b>Type:</b> ${job.type}</p>
+
+`
+
+container.appendChild(card)
+
+})
+
+document.getElementById("pageInfo").innerText=
+"Page "+(currentPage+1)+" of "+arrays.length
+
+}
+
+
+
+function nextPage(){
+
+let arrays=getActiveArrays()
+
+if(currentPage<arrays.length-1){
+
+currentPage++
+displayJobs()
+
+}
+
+}
+
+
+
+function prevPage(){
+
+if(currentPage>0){
+
+currentPage--
+displayJobs()
+
+}
+
+}
+
+
+
+displayJobs()
+
+</script>
+
+</body>
+</html>
+```

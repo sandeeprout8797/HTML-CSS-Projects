@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Job Notification</title>
+
+<style>
+
+body{
+font-family:Arial;
+background:#f4f4f4;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+}
+
+form{
+background:white;
+padding:20px;
+border-radius:6px;
+margin-bottom:30px;
+}
+
+input,select{
+width:100%;
+padding:10px;
+margin:8px 0;
+border:1px solid #ccc;
+border-radius:4px;
+}
+
+button{
+padding:10px 18px;
+border:none;
+background:#0077ff;
+color:white;
+border-radius:5px;
+cursor:pointer;
+}
+
+.jobs{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+}
+
+.jobCard{
+background:white;
+padding:15px;
+border-radius:6px;
+box-shadow:0 2px 4px rgba(0,0,0,0.1);
+}
+
+.nav{
+margin-top:20px;
+display:flex;
+justify-content:center;
+gap:20px;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Create Job Notification</h2>
+
+<form id="jobForm">
+
+<input type="text" id="title" placeholder="Job Title" required>
+
+<input type="text" id="location" placeholder="Job Location" required>
+
+<input type="text" id="salary" placeholder="Salary" required>
+
+<select id="type" required>
+<option value="">Job Type</option>
+<option>Full Time</option>
+<option>Part Time</option>
+<option>Internship</option>
+<option>Remote</option>
+</select>
+
+<button type="submit">Add Job</button>
+
+</form>
+
+<div class="jobs" id="jobContainer"></div>
+
+<div class="nav">
+<button onclick="prevPage()">Previous</button>
+<button onclick="nextPage()">Next</button>
+</div>
+
+</div>
+
+<script>
+
+class Job {
+
+constructor(title, location, salary, type){
+
+this.title = title
+this.location = location
+this.salary = salary
+this.type = type
+
+}
+
+}
+
+
+let jobArrays = [[]]
+
+let currentPage = 0
+
+
+document.getElementById("jobForm").addEventListener("submit", function(e){
+
+e.preventDefault()
+
+let title = document.getElementById("title").value
+let location = document.getElementById("location").value
+let salary = document.getElementById("salary").value
+let type = document.getElementById("type").value
+
+
+let newJob = new Job(title,location,salary,type)
+
+
+// check index 0 array
+if(jobArrays[0].length < 10){
+
+jobArrays[0].push(newJob)
+
+}else{
+
+// create new array at index 0
+jobArrays.unshift([newJob])
+
+currentPage = 0
+
+}
+
+displayJobs()
+
+this.reset()
+
+})
+
+
+function displayJobs(){
+
+    let container = document.getElementById("jobContainer")
+
+    container.innerHTML = ""
+
+    jobArrays[currentPage].forEach(job=>{
+
+    let card = document.createElement("div")
+
+    card.className="jobCard"
+
+    card.innerHTML = `
+    <h3>${job.title}</h3>
+    <p><b>Location:</b> ${job.location}</p>
+    <p><b>Salary:</b> ${job.salary}</p>
+    <p><b>Type:</b> ${job.type}</p>
+    `
+
+    container.appendChild(card)
+
+    })
+
+}
+
+
+function nextPage(){
+
+if(currentPage < jobArrays.length - 1){
+
+currentPage++
+
+displayJobs()
+
+}
+
+}
+
+
+function prevPage(){
+
+if(currentPage > 0){
+
+currentPage--
+
+displayJobs()
+
+}
+
+}
+
+
+displayJobs()
+
+</script>
+
+</body>
+</html>

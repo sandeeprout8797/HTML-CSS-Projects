@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+
+        </title>
+    </head>
+
+    <body>
+
+        <div class="formInputDivision">
+            <h2> Enter The Job Details Here</h2>
+            <form onsubmit="addJob(event)">
+                <div>
+                    <label> Job Title </label>
+                    <input class="jobTitle" type="text" placeholder="enter the job title here">
+                </div>
+                <div>
+                    <label> Job Location </label>
+                    <input class="jobLocation" type="text" placeholder="enter job location here">
+                </div>
+
+                <div>
+                    <label> Job Type </label>
+                    <select class="jobType"> 
+                        <option> Select </option>
+                        <option> Remote </option>
+                        <option> On-Site </option>
+                        <option> Hybrid </option>
+                    </select>
+                </div>
+
+                <div>
+                    <label> Job Salary </label>
+                    <input class="jobSalary" type="jobSalary" placeholder="enter the salary here" min="1000"> 
+                </div>
+
+                <div>
+                    <label> Date & Time </label>
+                    <input class="jobDateInput" type="datetime-local">
+                </div>
+
+                <button> Submit </button>
+            </form>
+        </div>
+
+        <div class="formEditDivision">
+
+            <h2> Edit the Job Details </h2>
+
+            <div class="editJobDetails">
+                <label> Job Title </label>
+                <input class="editJobTitle" type="text" placeholder=""><br>
+
+                <label> job Location </label>
+                <input class="editJoblacation" type="text" placeholder=""><br>
+
+                <label> Job Type </label>
+                <select class="editJobType">
+                    <option> Select </option>
+                    <option> Remote </option>
+                    <option> On-Site </option>
+                    <option> Hybrid </option>
+                </select><br>
+
+                <label> Job Salary</label>
+                <input class="editJobSalary" type="text" placeholder=""><br>
+            </div>
+
+            <div class="editButtons">
+                    <button class="updateButton"> Update </button>
+                    <button class="deleteButton"> Delete </button>
+            </div>
+
+        </div>
+
+        <div class="deletePage">
+            <h2> Delete A Selected Page </h2>
+            <input class="deletePageInput" type="number">
+            <button class="deletePage"> Delete Page </button><br>
+        </div>
+
+        <h2>  --- Clear All Pages --- </h2>
+        <button class="deleteAllButton"> Delete All </button>
+
+        
+
+        <div class="jobsDisplayMainDivision">
+
+        </div>
+
+        <script src="./testadmin.js"></script>
+    </body>
+</html>
